@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>javascript基础1---数据类型 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="##一、Javascript简介&amp;emsp;&amp;emsp; 在上个世纪1995年，Netscape公司凭借其Navigator浏览器成为第一代互联网公司。之后，Netscape公司希望能在静态HTML页面上添加一些动态效果，于是Brendan Eich在两周之内设计出了JavaScript语言。由于当时java很火，Netscape公司希望借java热风推广，便取名为javascript。&amp;emsp">
+  <meta name="description" content="##一、Javascript简介&amp;emsp;&amp;emsp; 在上个世纪1995年，Netscape公司凭借其Navigator浏览器成为第一代互联网公司。之后，Netscape公司希望能在静态HTML页面上添加一些动态效果，于是Brendan Eich在两周之内设计出了JavaScript语言。由于当时java很火，Netscape公司希望借java热风推广，便取名为javascript。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="javascript基础1---数据类型">
 <meta property="og:url" content="http://yoursite.com/2017/08/04/javascript基础1/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="##一、Javascript简介&amp;emsp;&amp;emsp; 在上个世纪1995年，Netscape公司凭借其Navigator浏览器成为第一代互联网公司。之后，Netscape公司希望能在静态HTML页面上添加一些动态效果，于是Brendan Eich在两周之内设计出了JavaScript语言。由于当时java很火，Netscape公司希望借java热风推广，便取名为javascript。&amp;emsp">
+<meta property="og:description" content="##一、Javascript简介&amp;emsp;&amp;emsp; 在上个世纪1995年，Netscape公司凭借其Navigator浏览器成为第一代互联网公司。之后，Netscape公司希望能在静态HTML页面上添加一些动态效果，于是Brendan Eich在两周之内设计出了JavaScript语言。由于当时java很火，Netscape公司希望借java热风推广，便取名为javascript。">
 <meta property="og:image" content="http://yoursite.com/asset/img/javascript基础/数据类型/undefined1.png">
 <meta property="og:image" content="http://yoursite.com/asset/img/javascript基础/数据类型/undefined2.png">
 <meta property="og:image" content="http://yoursite.com/asset/img/javascript基础/数据类型/undefined3.png">
@@ -21,10 +21,10 @@
 <meta property="og:image" content="http://yoursite.com/asset/img/javascript基础/数据类型/null1.png">
 <meta property="og:image" content="http://yoursite.com/asset/img/javascript基础/数据类型/null2.png">
 <meta property="og:image" content="http://yoursite.com/asset/img/javascript基础/数据类型/null3.png">
-<meta property="og:updated_time" content="2017-08-06T03:35:06.315Z">
+<meta property="og:updated_time" content="2017-08-06T08:12:10.188Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript基础1---数据类型">
-<meta name="twitter:description" content="##一、Javascript简介&amp;emsp;&amp;emsp; 在上个世纪1995年，Netscape公司凭借其Navigator浏览器成为第一代互联网公司。之后，Netscape公司希望能在静态HTML页面上添加一些动态效果，于是Brendan Eich在两周之内设计出了JavaScript语言。由于当时java很火，Netscape公司希望借java热风推广，便取名为javascript。&amp;emsp">
+<meta name="twitter:description" content="##一、Javascript简介&amp;emsp;&amp;emsp; 在上个世纪1995年，Netscape公司凭借其Navigator浏览器成为第一代互联网公司。之后，Netscape公司希望能在静态HTML页面上添加一些动态效果，于是Brendan Eich在两周之内设计出了JavaScript语言。由于当时java很火，Netscape公司希望借java热风推广，便取名为javascript。">
 <meta name="twitter:image" content="http://yoursite.com/asset/img/javascript基础/数据类型/undefined1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -181,7 +181,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##一、Javascript简介<br>&emsp;&emsp; 在上个世纪1995年，Netscape公司凭借其Navigator浏览器成为第一代互联网公司。之后，Netscape公司希望能在静态HTML页面上添加一些动态效果，于是Brendan Eich在两周之内设计出了JavaScript语言。由于当时java很火，Netscape公司希望借java热风推广，便取名为javascript。<br>&emsp;&emsp; 之后，微软模仿javascript开发了Jscript，此时，相当于有了两个JavaScript版本。为了让Javascript成为国际标准，几个公司联合ECMA组织制订了Javascript语言的标准，被称为ECMAScript标准。<br>&emsp;&emsp; ECMA就是对标准规定的各个方面内容的语言的描述，可以理解为ECMA仅仅是一个描述，定义了脚本语言的所有属性、方法和对象。其他的语言可以实现ECMAScript，来作为功能的基准，javascript就是这样。<br>&emsp;&emsp; web浏览器只是ECMAScript实现可能的宿舍环境之一，宿主环境不仅提供基本的ECMAScript实现，同时也会提供语言的扩展。可以理解为每个浏览器都有自己的ECMAScript接口，然后这个实现又被扩展，包含了BOM和DOM以及其他扩展。<br>&emsp;&emsp;一个完整的javascript实现应该由下列三个不同的部分组成：<br>&emsp;&emsp;● ECMAScript（核心） ECMAScript描述了该语言的语法和基本对象；<br>&emsp;&emsp;● DOM（文档对象模型）DOM 描述了处理网页内容的方法和接口；<br>&emsp;&emsp;● BOM（浏览器对象模型）BOM描述了与浏览器进行交互的方法和接口。  </p>
+        <p>##一、Javascript简介<br>&emsp;&emsp; 在上个世纪1995年，Netscape公司凭借其Navigator浏览器成为第一代互联网公司。之后，Netscape公司希望能在静态HTML页面上添加一些动态效果，于是Brendan Eich在两周之内设计出了JavaScript语言。由于当时java很火，Netscape公司希望借java热风推广，便取名为javascript。<br><a id="more"></a><br>&emsp;&emsp; 之后，微软模仿javascript开发了Jscript，此时，相当于有了两个JavaScript版本。为了让Javascript成为国际标准，几个公司联合ECMA组织制订了Javascript语言的标准，被称为ECMAScript标准。<br>&emsp;&emsp; ECMA就是对标准规定的各个方面内容的语言的描述，可以理解为ECMA仅仅是一个描述，定义了脚本语言的所有属性、方法和对象。其他的语言可以实现ECMAScript，来作为功能的基准，javascript就是这样。<br>&emsp;&emsp; web浏览器只是ECMAScript实现可能的宿舍环境之一，宿主环境不仅提供基本的ECMAScript实现，同时也会提供语言的扩展。可以理解为每个浏览器都有自己的ECMAScript接口，然后这个实现又被扩展，包含了BOM和DOM以及其他扩展。<br>&emsp;&emsp;一个完整的javascript实现应该由下列三个不同的部分组成：<br>&emsp;&emsp;● ECMAScript（核心） ECMAScript描述了该语言的语法和基本对象；<br>&emsp;&emsp;● DOM（文档对象模型）DOM 描述了处理网页内容的方法和接口；<br>&emsp;&emsp;● BOM（浏览器对象模型）BOM描述了与浏览器进行交互的方法和接口。  </p>
 <p>##二、Javascript数据类型<br>&emsp;&emsp;ECMAScript中有6种简单数据结构（基本数据结构）：Undefined、Null、Boolean、Number、String、Symbol。还有一种复杂结构类型（引用类型）Object。<br>&emsp;&emsp;基本数据类型保存在内存的栈区，复制变量时会创建其值的一个副本。基本数据类型可以使用typeof区分。<br>&emsp;&emsp;引用类型的存储是由内存的栈区和堆区共同完成，引用类型的值是对象,保存在堆内存中，栈区内存保存变量标识符和指向堆内存中该对象的指针，也就是该对象在堆内存的地址。</p>
 <p>###1、Undefined类型<br>&emsp;&emsp;使用var声明但是未初始化的变量其值为undefined。使用未声明的变量会报错。如：<br><img src="/asset/img/javascript基础/数据类型/undefined1.png"><br><img src="/asset/img/javascript基础/数据类型/undefined2.png" width="50%" height="50%"><br>&emsp;&emsp;但是，对未初始化的变量执行typeof操作符会返回undefined值，对未声明的变量执行typeof操作符也会返回undefined。<br><img src="/asset/img/javascript基础/数据类型/undefined3.png" width="50%" height="50%"><br><img src="/asset/img/javascript基础/数据类型/undefined4.png" width="50%" height="50%"></p>
 <p>###2、Null类型<br>如果定义的变量将来准备用于保存变量，那么最好将该变量初始化为null。</p>
@@ -408,15 +408,15 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">vue.js</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">前端框架</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
             
             <div class="clearfix"></div>
