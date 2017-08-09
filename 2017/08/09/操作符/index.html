@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>操作符 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="相等（==）操作符&amp;emsp;&amp;emsp;相等操作符的最终结果是将其他非数值类型转化为数值类型。相等操作符转换规则如下：&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;左右两边类型相等：&amp;emsp;&amp;emsp;1、NaN != NaN  &amp;emsp;&amp;emsp;  -0 == +0&amp;emsp;&amp;emsp;2、两边都是对象比较的是地址&amp;emsp;&amp;emsp;左右两边类型不相等：&amp;emsp;&amp;emsp">
+  <meta name="description" content="相等（==）操作符&amp;emsp;&amp;emsp;相等操作符的最终结果是将其他非数值类型转化为数值类型。相等操作符转换规则如下：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="操作符">
 <meta property="og:url" content="http://yoursite.com/2017/08/09/操作符/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="相等（==）操作符&amp;emsp;&amp;emsp;相等操作符的最终结果是将其他非数值类型转化为数值类型。相等操作符转换规则如下：&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;左右两边类型相等：&amp;emsp;&amp;emsp;1、NaN != NaN  &amp;emsp;&amp;emsp;  -0 == +0&amp;emsp;&amp;emsp;2、两边都是对象比较的是地址&amp;emsp;&amp;emsp;左右两边类型不相等：&amp;emsp;&amp;emsp">
+<meta property="og:description" content="相等（==）操作符&amp;emsp;&amp;emsp;相等操作符的最终结果是将其他非数值类型转化为数值类型。相等操作符转换规则如下：">
 <meta property="og:image" content="http://yoursite.com/asset/img/javascript基础/操作符/operator1.png">
 <meta property="og:image" content="http://yoursite.com/asset/img/javascript基础/操作符/operator2.png">
 <meta property="og:image" content="http://yoursite.com/asset/img/javascript基础/操作符/operator3.png">
@@ -21,10 +21,11 @@
 <meta property="og:image" content="http://yoursite.com/asset/img/javascript基础/操作符/operator5.png">
 <meta property="og:image" content="http://yoursite.com/asset/img/javascript基础/操作符/operator6.png">
 <meta property="og:image" content="http://yoursite.com/asset/img/javascript基础/操作符/operator7.png">
-<meta property="og:updated_time" content="2017-08-09T09:02:16.719Z">
+<meta property="og:image" content="http://yoursite.com/asset/img/javascript基础/操作符/operator8.png">
+<meta property="og:updated_time" content="2017-08-09T09:35:51.266Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="操作符">
-<meta name="twitter:description" content="相等（==）操作符&amp;emsp;&amp;emsp;相等操作符的最终结果是将其他非数值类型转化为数值类型。相等操作符转换规则如下：&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;左右两边类型相等：&amp;emsp;&amp;emsp;1、NaN != NaN  &amp;emsp;&amp;emsp;  -0 == +0&amp;emsp;&amp;emsp;2、两边都是对象比较的是地址&amp;emsp;&amp;emsp;左右两边类型不相等：&amp;emsp;&amp;emsp">
+<meta name="twitter:description" content="相等（==）操作符&amp;emsp;&amp;emsp;相等操作符的最终结果是将其他非数值类型转化为数值类型。相等操作符转换规则如下：">
 <meta name="twitter:image" content="http://yoursite.com/asset/img/javascript基础/操作符/operator1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -181,17 +182,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="相等（-）操作符"><a href="#相等（-）操作符" class="headerlink" title="相等（==）操作符"></a>相等（==）操作符</h2><p>&emsp;&emsp;相等操作符的最终结果是将其他非数值类型转化为数值类型。相等操作符转换规则如下：<br>&emsp;&emsp;<img src="/asset/img/javascript基础/操作符/operator1.png"><br>&emsp;&emsp;左右两边类型相等：<br>&emsp;&emsp;1、NaN != NaN  &emsp;&emsp;  -0 == +0<br>&emsp;&emsp;2、两边都是对象比较的是地址<br>&emsp;&emsp;左右两边类型不相等：<br>&emsp;&emsp;1、undefined == null<br>&emsp;&emsp;2、有 null/undefined 参与的 == 运算是不进行隐式转换。<br>&emsp;&emsp;&emsp;&emsp;0 == null; // false<br>&emsp;&emsp;&emsp;&emsp;null == false; // false<br>&emsp;&emsp;&emsp;&emsp;”undefined” == undefined; // false<br>&emsp;&emsp;3、一个是number，一个是string，string将调用toNumber()转换为number<br>&emsp;&emsp;4、一个是boolean，一个是number，boolean将调用toNumber()转换为number<br>&emsp;&emsp;5、一个是boolean，一个是string，boolean和String将调用toNumber()转换为number<br>&emsp;&emsp;6、一个是object，另一个是其他（string/number),object将调用toPrimitive()</p>
+        <h2 id="相等（-）操作符"><a href="#相等（-）操作符" class="headerlink" title="相等（==）操作符"></a>相等（==）操作符</h2><p>&emsp;&emsp;相等操作符的最终结果是将其他非数值类型转化为数值类型。相等操作符转换规则如下：<a id="more"></a><br>&emsp;&emsp;<img src="/asset/img/javascript基础/操作符/operator1.png"><br>&emsp;&emsp;左右两边类型相等：<br>&emsp;&emsp;1、NaN != NaN  &emsp;&emsp;  -0 == +0<br>&emsp;&emsp;2、两边都是对象比较的是地址<br>&emsp;&emsp;左右两边类型不相等：<br>&emsp;&emsp;1、undefined == null<br>&emsp;&emsp;2、有 null/undefined 参与的 == 运算是不进行隐式转换。<br>&emsp;&emsp;&emsp;&emsp;0 == null; // false<br>&emsp;&emsp;&emsp;&emsp;null == false; // false<br>&emsp;&emsp;&emsp;&emsp;”undefined” == undefined; // false<br>&emsp;&emsp;3、一个是number，一个是string，string将调用toNumber()转换为number<br>&emsp;&emsp;4、一个是boolean，一个是number，boolean将调用toNumber()转换为number<br>&emsp;&emsp;5、一个是boolean，一个是string，boolean和String将调用toNumber()转换为number<br>&emsp;&emsp;6、一个是object，另一个是其他（string/number),object将调用toPrimitive()</p>
 <h3 id="emsp-emsp-toNumber方法即Number转换规则："><a href="#emsp-emsp-toNumber方法即Number转换规则：" class="headerlink" title="&emsp;&emsp;toNumber方法即Number转换规则："></a>&emsp;&emsp;toNumber方法即Number转换规则：</h3><p>&emsp;&emsp;<img src="/asset/img/javascript基础/操作符/operator2.png">    </p>
 <h3 id="emsp-emsp-toPrimitive方法如下："><a href="#emsp-emsp-toPrimitive方法如下：" class="headerlink" title="&emsp;&emsp;toPrimitive方法如下："></a>&emsp;&emsp;toPrimitive方法如下：</h3><p>&emsp;&emsp;<img src="/asset/img/javascript基础/操作符/operator3.png"><br>&emsp;&emsp;原始值指的是[‘Null’,’Undefined’,’String’,’Boolean’,’Number’]五种基本数据类型之一</p>
 <h4 id="emsp-emsp-valueOf返回值："><a href="#emsp-emsp-valueOf返回值：" class="headerlink" title="&emsp;&emsp;valueOf返回值："></a>&emsp;&emsp;valueOf返回值：</h4><p>&emsp;&emsp;<img src="/asset/img/javascript基础/操作符/operator4.png"><br>注意：Number、Boolean、String有属于自身的原型valueOf方法，不是直接从Object.prototype上继承下来，归纳如下：<br>&emsp;&emsp;<img src="/asset/img/javascript基础/操作符/operator5.png"> </p>
 <h4 id="emsp-emsp-toString返回值："><a href="#emsp-emsp-toString返回值：" class="headerlink" title="&emsp;&emsp;toString返回值："></a>&emsp;&emsp;toString返回值：</h4><p>&emsp;&emsp;<img src="/asset/img/javascript基础/操作符/operator6.png"> </p>
-<h2 id="一元加操作符"><a href="#一元加操作符" class="headerlink" title="一元加操作符"></a>一元加操作符</h2><p>var num = 25；<br>num = +num;<br>改操作符会像Number（）函数一样对非数值类型进行转换。</p>
-<h2 id="布尔操作符"><a href="#布尔操作符" class="headerlink" title="布尔操作符"></a>布尔操作符</h2><h3 id="emsp-emsp-操作符转换规则："><a href="#emsp-emsp-操作符转换规则：" class="headerlink" title="&emsp;&emsp;操作符转换规则："></a>&emsp;&emsp;操作符转换规则：</h3><p>&emsp;&emsp;<img src="/asset/img/javascript基础/操作符/operator7.png"> </p>
+<h3 id="emsp-emsp-总结"><a href="#emsp-emsp-总结" class="headerlink" title="&emsp;&emsp;==总结"></a>&emsp;&emsp;==总结</h3><p>&emsp;&emsp;<img src="/asset/img/javascript基础/操作符/operator7.png"> </p>
+<h2 id="一元加操作符"><a href="#一元加操作符" class="headerlink" title="一元加操作符"></a>一元加操作符</h2><p>&emsp;&emsp;var num = 25；<br>&emsp;&emsp;num = +num;<br>&emsp;&emsp;改操作符会像Number（）函数一样对非数值类型进行转换。</p>
+<h2 id="布尔操作符"><a href="#布尔操作符" class="headerlink" title="布尔操作符"></a>布尔操作符</h2><h3 id="emsp-emsp-操作符转换规则："><a href="#emsp-emsp-操作符转换规则：" class="headerlink" title="&emsp;&emsp;操作符转换规则："></a>&emsp;&emsp;操作符转换规则：</h3><p>&emsp;&emsp;<img src="/asset/img/javascript基础/操作符/operator8.png"> </p>
 <h3 id="emsp-emsp-取反"><a href="#emsp-emsp-取反" class="headerlink" title="&emsp;&emsp;! 取反"></a>&emsp;&emsp;! 取反</h3><p>&emsp;&emsp;!x 将表达式x转换成布尔值（Boolean），之后在将结果取反。<br>&emsp;&emsp;!!x 则表示取 x 表达式的运行结果的布尔值。<br>&emsp;&emsp;&emsp;&emsp;var obj = {};<br>&emsp;&emsp;&emsp;&emsp;var a = !obj // false;<br>&emsp;&emsp;&emsp;&emsp;var a = !!obj // true;  </p>
 <h3 id="emsp-emsp-amp-amp-逻辑与"><a href="#emsp-emsp-amp-amp-逻辑与" class="headerlink" title="&emsp;&emsp;&amp;&amp; 逻辑与"></a>&emsp;&emsp;&amp;&amp; 逻辑与</h3><p>&emsp;&emsp;x &amp;&amp; y 如果 x 表达式的运行结果转换成 Boolean 值为 false 则不运行表达式 y 而直接返回 x 表达式的运行结果。相反，如果 x 表达式的运行结果转换成 Boolean 值为 true 则运行表达式 y 并返回 y 表达式的运行结果。 </p>
 <h3 id="emsp-emsp-逻辑或"><a href="#emsp-emsp-逻辑或" class="headerlink" title="&emsp;&emsp;|| 逻辑或"></a>&emsp;&emsp;|| 逻辑或</h3><p>&emsp;&emsp;x || y 如果 x 表达式的运行结果转换为 Boolean 值为 true，则不运行 表达式 y 而直接返回表达式 x 的运算结果。（与 &amp;&amp; 方式相反）</p>
-<p>【参考文章】<br>1、<a href="https://github.com/jawil/blog/issues/1" target="_blank" rel="external">从 []==![] 为 true 来剖析 JavaScript 各种蛋疼的类型转换</a><br>2、<a href="https://msdn.microsoft.com/zh-cn/library/k6xhc6yc(v=vs.94" target="_blank" rel="external">toString 方法 (Object) (JavaScript)</a>.aspx)<br>3、<a href="https://msdn.microsoft.com/zh-cn/library/ftx8swz5(v=vs.94" target="_blank" rel="external">valueOf 方法 (Object) (JavaScript)</a>.aspx)<br>4、<a href="https://li-xinyang.gitbooks.io/frontend-notebook/content/chapter2/07_statement_and_operator.html" target="_blank" rel="external">表达式与运算符</a></p>
+<p>[//]:%28( &emsp;&emsp; %29)<br>【参考文章】<br>1、<a href="https://github.com/jawil/blog/issues/1" target="_blank" rel="external">从 []==![] 为 true 来剖析 JavaScript 各种蛋疼的类型转换</a><br>2、<a href="https://msdn.microsoft.com/zh-cn/library/k6xhc6yc%28v=vs.94%29.aspx" target="_blank" rel="external">toString 方法 (Object) (JavaScript)</a><br>3、<a href="https://msdn.microsoft.com/zh-cn/library/ftx8swz5%28v=vs.94%29.aspx" target="_blank" rel="external">valueOf 方法 (Object) (JavaScript)</a><br>4、<a href="https://li-xinyang.gitbooks.io/frontend-notebook/content/chapter2/07_statement_and_operator.html" target="_blank" rel="external">表达式与运算符</a></p>
 
       
 
