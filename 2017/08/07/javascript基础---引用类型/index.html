@@ -6,14 +6,30 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017/8 | Hexo</title>
+  <title>javascript基础----引用类型 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2017/08/index.html">
+  <meta name="description" content="&amp;emsp;&amp;emsp;javascript 类型系统可以分为标准类型和对象类型，进一步标准类型又可以分为原始类型和引用类型，而对象类型又可以分为内置对象类型、普通对象类型、自定义对象类型。&amp;emsp;&amp;emsp; 
+标准内置对象构造器对象ObjectBooleanStringNumberFunctionArrayRegExpDateError其他对象
+MathJSON全局对象
+类型识别&amp;emsp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript基础----引用类型">
+<meta property="og:url" content="http://yoursite.com/2017/08/07/javascript基础---引用类型/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;javascript 类型系统可以分为标准类型和对象类型，进一步标准类型又可以分为原始类型和引用类型，而对象类型又可以分为内置对象类型、普通对象类型、自定义对象类型。&amp;emsp;&amp;emsp; 
+标准内置对象构造器对象ObjectBooleanStringNumberFunctionArrayRegExpDateError其他对象
+MathJSON全局对象
+类型识别&amp;emsp">
+<meta property="og:image" content="http://yoursite.com/asset/img/javascript基础/引用类型/object1.png">
+<meta property="og:image" content="http://yoursite.com/asset/img/javascript基础/引用类型/object2.png">
+<meta property="og:updated_time" content="2017-08-09T07:13:41.650Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="javascript基础----引用类型">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;javascript 类型系统可以分为标准类型和对象类型，进一步标准类型又可以分为原始类型和引用类型，而对象类型又可以分为内置对象类型、普通对象类型、自定义对象类型。&amp;emsp;&amp;emsp; 
+标准内置对象构造器对象ObjectBooleanStringNumberFunctionArrayRegExpDateError其他对象
+MathJSON全局对象
+类型识别&amp;emsp">
+<meta name="twitter:image" content="http://yoursite.com/asset/img/javascript基础/引用类型/object1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -149,74 +165,63 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-javascript基础---引用类型" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/09/操作符/" class="archive-article-date">
-  	<time datetime="2017-08-09T01:20:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-09</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/09/操作符/">操作符</a>
+    <h1 class="article-title" itemprop="name">
+      javascript基础----引用类型
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/07/javascript基础---引用类型/" class="archive-article-date">
+        
+        <a href="/2017/08/07/javascript基础---引用类型/" class="archive-article-date">
   	<time datetime="2017-08-07T01:20:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-07</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/07/javascript基础---引用类型/">javascript基础----引用类型</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&emsp;&emsp;javascript 类型系统可以分为标准类型和对象类型，进一步标准类型又可以分为原始类型和引用类型，而对象类型又可以分为内置对象类型、普通对象类型、自定义对象类型。<br>&emsp;&emsp;<img src="/asset/img/javascript基础/引用类型/object1.png"> </p>
+<h2 id="标准内置对象"><a href="#标准内置对象" class="headerlink" title="标准内置对象"></a>标准内置对象</h2><p>构造器对象<br>Object<br>Boolean<br>String<br>Number<br>Function<br>Array<br>RegExp<br>Date<br>Error<br>其他对象</p>
+<p>Math<br>JSON<br>全局对象</p>
+<h2 id="类型识别"><a href="#类型识别" class="headerlink" title="类型识别"></a>类型识别</h2><p>&emsp;&emsp;typeof<br>&emsp;&emsp;Object.prototype.toString<br>&emsp;&emsp;constructor<br>&emsp;&emsp;instanceof   </p>
+<h3 id="emsp-emsp-typeof："><a href="#emsp-emsp-typeof：" class="headerlink" title="&emsp;&emsp;typeof："></a>&emsp;&emsp;typeof：</h3><p>&emsp;&emsp;可以是标准类型（Null 除外）<br>&emsp;&emsp;不可识别具体的对象类型（Function 除外）</p>
+<h3 id="emsp-emsp-Object-prototype-toString："><a href="#emsp-emsp-Object-prototype-toString：" class="headerlink" title="&emsp;&emsp;Object.prototype.toString："></a>&emsp;&emsp;Object.prototype.toString：</h3><p>&emsp;&emsp;可以识别标准类型<br>&emsp;&emsp;可是识别标准类型及内置对象类型（例如，Object, Date, Array）<br>&emsp;&emsp;不能识别自定义对象类型</p>
+<h3 id="emsp-emsp-constructor："><a href="#emsp-emsp-constructor：" class="headerlink" title="&emsp;&emsp;constructor："></a>&emsp;&emsp;constructor：</h3><p>&emsp;&emsp;可以识别标准类型（Undefined/Null 除外）<br>&emsp;&emsp;可识别内置对象类型<br>&emsp;&emsp;可识别自定义对象类型   </p>
+<h3 id="emsp-emsp-instanceof："><a href="#emsp-emsp-instanceof：" class="headerlink" title="&emsp;&emsp;instanceof："></a>&emsp;&emsp;instanceof：</h3><p>&emsp;&emsp;不可判别原始类型<br>&emsp;&emsp;可判别内置对象类型<br>&emsp;&emsp;可判别自定义对象类型<br>&emsp;&emsp;<img src="/asset/img/javascript基础/引用类型/object2.png"> </p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -228,57 +233,97 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/07/javascript基础---引用类型/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/04/javascript基础---基本数据类型/" class="archive-article-date">
-  	<time datetime="2017-08-04T14:11:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-04</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/04/javascript基础---基本数据类型/">javascript基础---基本数据类型</a>
-    </h1>
+    <a href="/2017/08/09/操作符/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          操作符
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/08/04/javascript基础---基本数据类型/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">javascript基础---基本数据类型</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -301,8 +346,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

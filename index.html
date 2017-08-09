@@ -151,19 +151,160 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-javascript基础---数据类型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-操作符" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/04/javascript基础---数据类型/">javascript基础---数据类型</a>
+      <a class="article-title" href="/2017/08/09/操作符/">操作符</a>
     </h1>
   
 
         
-        <a href="/2017/08/04/javascript基础---数据类型/" class="archive-article-date">
+        <a href="/2017/08/09/操作符/" class="archive-article-date">
+  	<time datetime="2017-08-09T01:20:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="相等（-）操作符"><a href="#相等（-）操作符" class="headerlink" title="相等（==）操作符"></a>相等（==）操作符</h2><p>&emsp;&emsp;相等操作符的最终结果是将其他非数值类型转化为数值类型。相等操作符转换规则如下：<br>&emsp;&emsp;<img src="/asset/img/javascript基础/操作符/operator1.png"><br>&emsp;&emsp;左右两边类型相等：<br>&emsp;&emsp;1、NaN != NaN  &emsp;&emsp;  -0 == +0<br>&emsp;&emsp;2、两边都是对象比较的是地址<br>&emsp;&emsp;左右两边类型不相等：<br>&emsp;&emsp;1、undefined == null<br>&emsp;&emsp;2、有 null/undefined 参与的 == 运算是不进行隐式转换。<br>&emsp;&emsp;&emsp;&emsp;0 == null; // false<br>&emsp;&emsp;&emsp;&emsp;null == false; // false<br>&emsp;&emsp;&emsp;&emsp;”undefined” == undefined; // false<br>&emsp;&emsp;3、一个是number，一个是string，string将调用toNumber()转换为number<br>&emsp;&emsp;4、一个是boolean，一个是number，boolean将调用toNumber()转换为number<br>&emsp;&emsp;5、一个是boolean，一个是string，boolean和String将调用toNumber()转换为number<br>&emsp;&emsp;6、一个是object，另一个是其他（string/number),object将调用toPrimitive()</p>
+<h3 id="emsp-emsp-toNumber方法即Number转换规则："><a href="#emsp-emsp-toNumber方法即Number转换规则：" class="headerlink" title="&emsp;&emsp;toNumber方法即Number转换规则："></a>&emsp;&emsp;toNumber方法即Number转换规则：</h3><p>&emsp;&emsp;<img src="/asset/img/javascript基础/操作符/operator2.png">    </p>
+<h3 id="emsp-emsp-toPrimitive方法如下："><a href="#emsp-emsp-toPrimitive方法如下：" class="headerlink" title="&emsp;&emsp;toPrimitive方法如下："></a>&emsp;&emsp;toPrimitive方法如下：</h3><p>&emsp;&emsp;<img src="/asset/img/javascript基础/操作符/operator3.png"><br>&emsp;&emsp;原始值指的是[‘Null’,’Undefined’,’String’,’Boolean’,’Number’]五种基本数据类型之一</p>
+<h4 id="emsp-emsp-valueOf返回值："><a href="#emsp-emsp-valueOf返回值：" class="headerlink" title="&emsp;&emsp;valueOf返回值："></a>&emsp;&emsp;valueOf返回值：</h4><p>&emsp;&emsp;<img src="/asset/img/javascript基础/操作符/operator4.png"> </p>
+<h4 id="emsp-emsp-toString返回值："><a href="#emsp-emsp-toString返回值：" class="headerlink" title="&emsp;&emsp;toString返回值："></a>&emsp;&emsp;toString返回值：</h4><p>&emsp;&emsp;<img src="/asset/img/javascript基础/操作符/operator5.png"> </p>
+<h2 id="一元加操作符"><a href="#一元加操作符" class="headerlink" title="一元加操作符"></a>一元加操作符</h2><p>var num = 25；<br>num = +num;<br>改操作符会像Number（）函数一样对非数值类型进行转换。</p>
+<h2 id="布尔操作符"><a href="#布尔操作符" class="headerlink" title="布尔操作符"></a>布尔操作符</h2><h3 id="emsp-emsp-操作符转换规则："><a href="#emsp-emsp-操作符转换规则：" class="headerlink" title="&emsp;&emsp;操作符转换规则："></a>&emsp;&emsp;操作符转换规则：</h3><p>&emsp;&emsp;<img src="/asset/img/javascript基础/操作符/operator6.png"> </p>
+<h3 id="emsp-emsp-取反"><a href="#emsp-emsp-取反" class="headerlink" title="&emsp;&emsp;! 取反"></a>&emsp;&emsp;! 取反</h3><p>&emsp;&emsp;!x 将表达式x转换成布尔值（Boolean），之后在将结果取反。<br>&emsp;&emsp;!!x 则表示取 x 表达式的运行结果的布尔值。<br>&emsp;&emsp;&emsp;&emsp;var obj = {};<br>&emsp;&emsp;&emsp;&emsp;var a = !obj // false;<br>&emsp;&emsp;&emsp;&emsp;var a = !!obj // true;  </p>
+<h3 id="emsp-emsp-amp-amp-逻辑与"><a href="#emsp-emsp-amp-amp-逻辑与" class="headerlink" title="&emsp;&emsp;&amp;&amp; 逻辑与"></a>&emsp;&emsp;&amp;&amp; 逻辑与</h3><p>&emsp;&emsp;x &amp;&amp; y 如果 x 表达式的运行结果转换成 Boolean 值为 false 则不运行表达式 y 而直接返回 x 表达式的运行结果。相反，如果 x 表达式的运行结果转换成 Boolean 值为 true 则运行表达式 y 并返回 y 表达式的运行结果。 </p>
+<h3 id="emsp-emsp-逻辑或"><a href="#emsp-emsp-逻辑或" class="headerlink" title="&emsp;&emsp;|| 逻辑或"></a>&emsp;&emsp;|| 逻辑或</h3><p>&emsp;&emsp;x || y 如果 x 表达式的运行结果转换为 Boolean 值为 true，则不运行 表达式 y 而直接返回表达式 x 的运算结果。（与 &amp;&amp; 方式相反）</p>
+<p>【参考文章】<br>1、<a href="https://github.com/jawil/blog/issues/1" target="_blank" rel="external">从 []==![] 为 true 来剖析 JavaScript 各种蛋疼的类型转换</a><br>2、<a href="https://msdn.microsoft.com/zh-cn/library/k6xhc6yc(v=vs.94" target="_blank" rel="external">toString 方法 (Object) (JavaScript)</a>.aspx)<br>3、<a href="https://msdn.microsoft.com/zh-cn/library/ftx8swz5(v=vs.94" target="_blank" rel="external">valueOf 方法 (Object) (JavaScript)</a>.aspx)<br>4、<a href="https://li-xinyang.gitbooks.io/frontend-notebook/content/chapter2/07_statement_and_operator.html" target="_blank" rel="external">表达式与运算符</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/09/操作符/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-javascript基础---引用类型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/07/javascript基础---引用类型/">javascript基础----引用类型</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/07/javascript基础---引用类型/" class="archive-article-date">
+  	<time datetime="2017-08-07T01:20:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&emsp;&emsp;javascript 类型系统可以分为标准类型和对象类型，进一步标准类型又可以分为原始类型和引用类型，而对象类型又可以分为内置对象类型、普通对象类型、自定义对象类型。<br>&emsp;&emsp;<img src="/asset/img/javascript基础/引用类型/object1.png"> </p>
+<h2 id="标准内置对象"><a href="#标准内置对象" class="headerlink" title="标准内置对象"></a>标准内置对象</h2><p>构造器对象<br>Object<br>Boolean<br>String<br>Number<br>Function<br>Array<br>RegExp<br>Date<br>Error<br>其他对象</p>
+<p>Math<br>JSON<br>全局对象</p>
+<h2 id="类型识别"><a href="#类型识别" class="headerlink" title="类型识别"></a>类型识别</h2><p>&emsp;&emsp;typeof<br>&emsp;&emsp;Object.prototype.toString<br>&emsp;&emsp;constructor<br>&emsp;&emsp;instanceof   </p>
+<h3 id="emsp-emsp-typeof："><a href="#emsp-emsp-typeof：" class="headerlink" title="&emsp;&emsp;typeof："></a>&emsp;&emsp;typeof：</h3><p>&emsp;&emsp;可以是标准类型（Null 除外）<br>&emsp;&emsp;不可识别具体的对象类型（Function 除外）</p>
+<h3 id="emsp-emsp-Object-prototype-toString："><a href="#emsp-emsp-Object-prototype-toString：" class="headerlink" title="&emsp;&emsp;Object.prototype.toString："></a>&emsp;&emsp;Object.prototype.toString：</h3><p>&emsp;&emsp;可以识别标准类型<br>&emsp;&emsp;可是识别标准类型及内置对象类型（例如，Object, Date, Array）<br>&emsp;&emsp;不能识别自定义对象类型</p>
+<h3 id="emsp-emsp-constructor："><a href="#emsp-emsp-constructor：" class="headerlink" title="&emsp;&emsp;constructor："></a>&emsp;&emsp;constructor：</h3><p>&emsp;&emsp;可以识别标准类型（Undefined/Null 除外）<br>&emsp;&emsp;可识别内置对象类型<br>&emsp;&emsp;可识别自定义对象类型   </p>
+<h3 id="emsp-emsp-instanceof："><a href="#emsp-emsp-instanceof：" class="headerlink" title="&emsp;&emsp;instanceof："></a>&emsp;&emsp;instanceof：</h3><p>&emsp;&emsp;不可判别原始类型<br>&emsp;&emsp;可判别内置对象类型<br>&emsp;&emsp;可判别自定义对象类型<br>&emsp;&emsp;<img src="/asset/img/javascript基础/引用类型/object2.png"> </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/07/javascript基础---引用类型/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-javascript基础---基本数据类型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/04/javascript基础---基本数据类型/">javascript基础---基本数据类型</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/04/javascript基础---基本数据类型/" class="archive-article-date">
   	<time datetime="2017-08-04T14:11:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-04</time>
 </a>
         
@@ -173,7 +314,7 @@
       
         <h2 id="一、Javascript简介"><a href="#一、Javascript简介" class="headerlink" title="一、Javascript简介"></a>一、Javascript简介</h2><p>&emsp;&emsp; 在上个世纪1995年，Netscape公司凭借其Navigator浏览器成为第一代互联网公司。之后，Netscape公司希望能在静态HTML页面上添加一些动态效果，于是Brendan Eich在两周之内设计出了JavaScript语言。由于当时java很火，Netscape公司希望借java热风推广，便取名为javascript。
         
-          <a class="article-more-a" href="/2017/08/04/javascript基础---数据类型/#more">more >></a>
+          <a class="article-more-a" href="/2017/08/04/javascript基础---基本数据类型/#more">more >></a>
         
       
 
@@ -197,7 +338,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/04/javascript基础---数据类型/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/08/04/javascript基础---基本数据类型/">展开全文 >></a>
         </p>
       
 
