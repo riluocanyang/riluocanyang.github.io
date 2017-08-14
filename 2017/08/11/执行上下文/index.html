@@ -6,14 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hexo</title>
+  <title>执行上下文 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="一、可执行代码&amp;emsp;&amp;emsp;ES可执行代码（executable code）分为3种：&amp;emsp;&amp;emsp;&amp;emsp;全局代码—javascript代码首次进入的环境&amp;emsp;&amp;emsp;&amp;emsp;函数代码—函数被调用时，进入函数执行环境&amp;emsp;&amp;emsp;&amp;emsp;eval代码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="执行上下文">
+<meta property="og:url" content="http://yoursite.com/2017/08/11/执行上下文/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一、可执行代码&amp;emsp;&amp;emsp;ES可执行代码（executable code）分为3种：&amp;emsp;&amp;emsp;&amp;emsp;全局代码—javascript代码首次进入的环境&amp;emsp;&amp;emsp;&amp;emsp;函数代码—函数被调用时，进入函数执行环境&amp;emsp;&amp;emsp;&amp;emsp;eval代码">
+<meta property="og:updated_time" content="2017-08-14T07:00:46.392Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="执行上下文">
+<meta name="twitter:description" content="一、可执行代码&amp;emsp;&amp;emsp;ES可执行代码（executable code）分为3种：&amp;emsp;&amp;emsp;&amp;emsp;全局代码—javascript代码首次进入的环境&amp;emsp;&amp;emsp;&amp;emsp;函数代码—函数被调用时，进入函数执行环境&amp;emsp;&amp;emsp;&amp;emsp;eval代码">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -149,80 +153,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-this解析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-执行上下文" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/14/this解析/">this解析</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/14/this解析/" class="archive-article-date">
-  	<time datetime="2017-08-14T06:55:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、默认绑定"><a href="#一、默认绑定" class="headerlink" title="一、默认绑定"></a>一、默认绑定</h2><p>&emsp;&emsp;最常用的函数调用类型：独立函数调用。<br>&emsp;&emsp;非严格模式下：this—&gt; window；严格模式下：this—&gt; undefined<br>&emsp;&emsp;<img src="/asset/img/javascript基础/this解析/this1.png"><br>&emsp;&emsp;函数调用时，应用了this的默认绑定，因此this指向全局对象。<br>
-        
-          <a class="article-more-a" href="/2017/08/14/this解析/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/14/this解析/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-执行上下文" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/11/执行上下文/">执行上下文</a>
+    <h1 class="article-title" itemprop="name">
+      执行上下文
     </h1>
   
 
@@ -235,76 +173,41 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、可执行代码"><a href="#一、可执行代码" class="headerlink" title="一、可执行代码"></a>一、可执行代码</h2><p>&emsp;&emsp;ES可执行代码（executable code）分为3种：<br>&emsp;&emsp;&emsp;全局代码—javascript代码首次进入的环境<br>&emsp;&emsp;&emsp;函数代码—函数被调用时，进入函数执行环境<br>&emsp;&emsp;&emsp;eval代码<br>
-        
-          <a class="article-more-a" href="/2017/08/11/执行上下文/#more">more >></a>
-        
+        <h2 id="一、可执行代码"><a href="#一、可执行代码" class="headerlink" title="一、可执行代码"></a>一、可执行代码</h2><p>&emsp;&emsp;ES可执行代码（executable code）分为3种：<br>&emsp;&emsp;&emsp;全局代码—javascript代码首次进入的环境<br>&emsp;&emsp;&emsp;函数代码—函数被调用时，进入函数执行环境<br>&emsp;&emsp;&emsp;eval代码<br><a id="more"></a></p>
+<h2 id="二、可执行上下文"><a href="#二、可执行上下文" class="headerlink" title="二、可执行上下文"></a>二、可执行上下文</h2><p>&emsp;&emsp;当控制器转到可执行代码时，会进入一个执行上下文（Execution Content，EC）。进入全局代码时，会创建全局环境执行上下文；调用函数时，会创建函数执行上下文。处于活动状态的执行上下文环境只会有一个。<br>&emsp;&emsp;JS引擎创建了执行上下文栈（Execution Content Stack，ECS）管理执行上下文。每个执行上下文都有3个重要属性：<br>&emsp;&emsp;● 变量对象（Variable Object,VO）<br>&emsp;&emsp;● 作用域链（Scope Chain）<br>&emsp;&emsp;● this  </p>
+<h3 id="emsp-emsp-1、变量对象"><a href="#emsp-emsp-1、变量对象" class="headerlink" title="&emsp;&emsp;1、变量对象"></a>&emsp;&emsp;1、变量对象</h3><p>&emsp;&emsp;变量对象是与执行上下文相关的数据作用域，存储了函数的参数、变量和函数声明。它是一个抽象的概念。<br>&emsp;&emsp;当进入执行上下文时，VO的初始化过程如下:<br><strong>&emsp;&emsp;函数的形参（如果是函数上下文）— 变量对象的属性：</strong><br>&emsp;&emsp;由属性名和值组成的键值对，属性名就是形参的名称，属性值就是形参的值。如果没有实参，其值为undefined。<br><strong>&emsp;&emsp;函数声明 — 变量对象的属性：</strong><br>&emsp;&emsp;由属性名和值组成的键值对，属性名就是函数的名称，属性值就是函数对象。如果变量对象已经存在相同的名称的属性，替换这个属性。<br><strong>&emsp;&emsp;变量声明 — 变量对象的属性：</strong><br>&emsp;&emsp;由属性名和值组成的键值对，属性名就是变量的名称，属性值为undefined。如果变量名和已声明的函数或者函数的参数名相同，变量声明不会影响已存在的属性。<br>&emsp;&emsp;<strong>注意：初始化阶段变量并没有执行赋值语句。</strong></p>
+<h4 id="emsp-emsp-全局上下文的变量对象"><a href="#emsp-emsp-全局上下文的变量对象" class="headerlink" title="&emsp;&emsp;全局上下文的变量对象"></a>&emsp;&emsp;全局上下文的变量对象</h4><p>&emsp;&emsp;在javascript中，可以用关键字this引用全局对象。<br>在全局上下文中，变量对象也是全局对象自身。</p>
+<h4 id="emsp-emsp-函数上下文的变量对象"><a href="#emsp-emsp-函数上下文的变量对象" class="headerlink" title="&emsp;&emsp;函数上下文的变量对象"></a>&emsp;&emsp;函数上下文的变量对象</h4><p>&emsp;&emsp;函数被激活时，用活动对象（Activation Object）表示变量对象。活动对象是在进入函数上下文时被创建的，它通过函数的arguments属性初始化。arguments属性值是Arguments对象。</p>
+<h3 id="emsp-emsp-2、作用域链"><a href="#emsp-emsp-2、作用域链" class="headerlink" title="&emsp;&emsp;2、作用域链"></a>&emsp;&emsp;2、作用域链</h3><p>&emsp;&emsp;由多个执行上下文的变量对象构成的链表叫作用域链。   </p>
+<h4 id="emsp-emsp-函数创建和执行过程"><a href="#emsp-emsp-函数创建和执行过程" class="headerlink" title="&emsp;&emsp;函数创建和执行过程"></a>&emsp;&emsp;函数创建和执行过程</h4><p>&emsp;&emsp;在一个<strong>函数定义</strong>的时候，会保存所有父变量对象（父作用域链）到函数的[scope]属性（每个函数有一个内部属性[scope]）。    </p>
+<p>&emsp;&emsp;<strong>调用函数</strong>，创建函数执行上下文，函数执行上下文被压入执行上下文栈。 </p>
+<p>&emsp;&emsp;<strong>函数不立刻执行，开始准备工作</strong>，首先将函数上下文中的作用域链连接到函数[scope]属性，接着用arguments创建活动对象，随后初始化活动对象，加入形参、函数声明、变量声明，最后，将活动对象压入上下文的作用域链顶端。   </p>
+<p>&emsp;&emsp;<strong>准备工作做完，开始执行函数</strong>，随着函数的执行，修改AO的属性值。 </p>
+<p>&emsp;&emsp;找到变量，返回后<strong>函数执行完毕</strong>，函数上下文从执行上下文栈中弹出。</p>
+<h3 id="emsp-emsp-3、this"><a href="#emsp-emsp-3、this" class="headerlink" title="&emsp;&emsp;3、this"></a>&emsp;&emsp;3、this</h3>
       
 
       
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/11/执行上下文/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-作用域和闭包" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/10/作用域和闭包/">作用域和闭包</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/10/作用域和闭包/" class="archive-article-date">
-  	<time datetime="2017-08-10T07:20:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、作用域是什么？"><a href="#一、作用域是什么？" class="headerlink" title="一、作用域是什么？"></a>一、作用域是什么？</h2><p>&emsp;&emsp;作用域是根据名称查找变量的一种规则，也就是确定当前执行代码对变量的访问权限。<br>&emsp;&emsp;对程序“var a = 2; ”进行处理的的重要“演员表”：<br>&emsp;&emsp;1、引擎：负责整个javascript程序的编译和执行过程。<br>&emsp;&emsp;2、编译器（解释器）：负责语法分析及代码生成等。<br>&emsp;&emsp;3、作用域：负责搜集并维护由所有声明的标识符组成的一系列查询，并实施一套非常严格的规则，确定当前执行的代码对这些标识符的访问权限。（即负责当前执行的代码对标识符的访问权限）
-        
-          <a class="article-more-a" href="/2017/08/10/作用域和闭包/#more">more >></a>
-        
-      
-
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -324,18 +227,83 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/10/作用域和闭包/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/11/执行上下文/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
 
-
+  
+<nav id="article-nav">
+  
+    <a href="/2017/08/14/this解析/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          this解析
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/08/10/作用域和闭包/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">作用域和闭包</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
 
 
@@ -343,326 +311,10 @@
 
 
   
-    <article id="post-操作符" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/09/操作符/">操作符</a>
-    </h1>
+    <div class="duoshuo"></div>
   
 
-        
-        <a href="/2017/08/09/操作符/" class="archive-article-date">
-  	<time datetime="2017-08-09T01:20:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="相等（-）操作符"><a href="#相等（-）操作符" class="headerlink" title="相等（==）操作符"></a>相等（==）操作符</h2><p>&emsp;&emsp;相等操作符的最终结果是将其他非数值类型转化为数值类型。相等操作符转换规则如下：
-        
-          <a class="article-more-a" href="/2017/08/09/操作符/#more">more >></a>
-        
-      
 
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/09/操作符/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-javascript基础---引用类型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/07/javascript基础---引用类型/">javascript基础----引用类型</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/07/javascript基础---引用类型/" class="archive-article-date">
-  	<time datetime="2017-08-07T01:20:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>&emsp;&emsp;javascript 类型系统可以分为标准类型和对象类型，进一步标准类型又可以分为原始类型和引用类型，而对象类型又可以分为内置对象类型、普通对象类型、自定义对象类型。
-        
-          <a class="article-more-a" href="/2017/08/07/javascript基础---引用类型/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/07/javascript基础---引用类型/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-javascript基础---基本数据类型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/04/javascript基础---基本数据类型/">javascript基础---基本数据类型</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/04/javascript基础---基本数据类型/" class="archive-article-date">
-  	<time datetime="2017-08-04T14:11:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、Javascript简介"><a href="#一、Javascript简介" class="headerlink" title="一、Javascript简介"></a>一、Javascript简介</h2><p>&emsp;&emsp; 在上个世纪1995年，Netscape公司凭借其Navigator浏览器成为第一代互联网公司。之后，Netscape公司希望能在静态HTML页面上添加一些动态效果，于是Brendan Eich在两周之内设计出了JavaScript语言。由于当时java很火，Netscape公司希望借java热风推广，便取名为javascript。
-        
-          <a class="article-more-a" href="/2017/08/04/javascript基础---基本数据类型/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/04/javascript基础---基本数据类型/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-认识vue.js" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/28/认识vue.js/">认识vue.js</a>
-    </h1>
-  
-
-        
-        <a href="/2017/07/28/认识vue.js/" class="archive-article-date">
-  	<time datetime="2017-07-28T07:45:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>我们首先了解一下MVX模式<br>MVX模式：MVC、MVP、MVVM
-        
-          <a class="article-more-a" href="/2017/07/28/认识vue.js/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">vue.js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/28/认识vue.js/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/27/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2017/02/27/hello-world/" class="archive-article-date">
-  	<time datetime="2017-02-27T03:08:12.227Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/02/27/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-  
 
 
           </div>
@@ -684,8 +336,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
