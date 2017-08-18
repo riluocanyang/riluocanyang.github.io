@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/08/11/执行上下文/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="一、可执行代码&amp;emsp;&amp;emsp;ES可执行代码（executable code）分为3种：&amp;emsp;&amp;emsp;&amp;emsp;全局代码—javascript代码首次进入的环境&amp;emsp;&amp;emsp;&amp;emsp;函数代码—函数被调用时，进入函数执行环境&amp;emsp;&amp;emsp;&amp;emsp;eval代码">
-<meta property="og:updated_time" content="2017-08-14T07:00:46.392Z">
+<meta property="og:updated_time" content="2017-08-17T14:52:50.222Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="执行上下文">
 <meta name="twitter:description" content="一、可执行代码&amp;emsp;&amp;emsp;ES可执行代码（executable code）分为3种：&amp;emsp;&amp;emsp;&amp;emsp;全局代码—javascript代码首次进入的环境&amp;emsp;&amp;emsp;&amp;emsp;函数代码—函数被调用时，进入函数执行环境&amp;emsp;&amp;emsp;&amp;emsp;eval代码">
@@ -184,7 +184,8 @@
 <p>&emsp;&emsp;<strong>函数不立刻执行，开始准备工作</strong>，首先将函数上下文中的作用域链连接到函数[scope]属性，接着用arguments创建活动对象，随后初始化活动对象，加入形参、函数声明、变量声明，最后，将活动对象压入上下文的作用域链顶端。   </p>
 <p>&emsp;&emsp;<strong>准备工作做完，开始执行函数</strong>，随着函数的执行，修改AO的属性值。 </p>
 <p>&emsp;&emsp;找到变量，返回后<strong>函数执行完毕</strong>，函数上下文从执行上下文栈中弹出。</p>
-<h3 id="emsp-emsp-3、this"><a href="#emsp-emsp-3、this" class="headerlink" title="&emsp;&emsp;3、this"></a>&emsp;&emsp;3、this</h3>
+<h3 id="emsp-emsp-3、this"><a href="#emsp-emsp-3、this" class="headerlink" title="&emsp;&emsp;3、this"></a>&emsp;&emsp;3、this</h3><p>【参考文献】<br>1、<a href="http://yanhaijing.com/javascript/2014/04/29/what-is-the-execution-context-in-javascript/" target="_blank" rel="external">了解JavaScript的执行上下文</a><br>2、<a href="https://github.com/mqyqingfeng/Blog/issues/4" target="_blank" rel="external">JavaScript深入之执行上下文栈</a><br>3、<a href="https://segmentfault.com/a/1190000009041008" target="_blank" rel="external">深入理解JavaScript执行上下文、函数堆栈、提升的概念</a><br>4、<a href="https://leohxj.gitbooks.io/front-end-database/javascript-advance/scope-chain.html" target="_blank" rel="external">理解执行环境与作用域链</a></p>
+
       
 
       
@@ -404,6 +405,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">

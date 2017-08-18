@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>this解析 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、默认绑定&amp;emsp;&amp;emsp;最常用的函数调用类型：独立函数调用。&amp;emsp;&amp;emsp;非严格模式下：this—&amp;gt; window；严格模式下：this—&amp;gt; undefined&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;函数调用时，应用了this的默认绑定，因此this指向全局对象。">
+  <meta name="description" content="一、默认绑定&amp;emsp;&amp;emsp;最常用的函数调用类型：独立函数调用。&amp;emsp;&amp;emsp;非严格模式下：this—&amp;gt; window；&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;函数调用时，应用了this的默认绑定，因此this指向全局对象。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="this解析">
 <meta property="og:url" content="http://yoursite.com/2017/08/14/this解析/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="一、默认绑定&amp;emsp;&amp;emsp;最常用的函数调用类型：独立函数调用。&amp;emsp;&amp;emsp;非严格模式下：this—&amp;gt; window；严格模式下：this—&amp;gt; undefined&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;函数调用时，应用了this的默认绑定，因此this指向全局对象。">
+<meta property="og:description" content="一、默认绑定&amp;emsp;&amp;emsp;最常用的函数调用类型：独立函数调用。&amp;emsp;&amp;emsp;非严格模式下：this—&amp;gt; window；&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;函数调用时，应用了this的默认绑定，因此this指向全局对象。">
 <meta property="og:image" content="http://yoursite.com/asset/img/javascript基础/this解析/this1.png">
 <meta property="og:image" content="http://yoursite.com/asset/img/javascript基础/this解析/this2.png">
 <meta property="og:image" content="http://yoursite.com/asset/img/javascript基础/this解析/this3.png">
@@ -30,10 +30,10 @@
 <meta property="og:image" content="http://yoursite.com/asset/img/javascript基础/this解析/this14.png">
 <meta property="og:image" content="http://yoursite.com/asset/img/javascript基础/this解析/this15.png">
 <meta property="og:image" content="http://yoursite.com/asset/img/javascript基础/this解析/this16.png">
-<meta property="og:updated_time" content="2017-08-14T09:42:18.141Z">
+<meta property="og:updated_time" content="2017-08-18T07:33:08.586Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="this解析">
-<meta name="twitter:description" content="一、默认绑定&amp;emsp;&amp;emsp;最常用的函数调用类型：独立函数调用。&amp;emsp;&amp;emsp;非严格模式下：this—&amp;gt; window；严格模式下：this—&amp;gt; undefined&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;函数调用时，应用了this的默认绑定，因此this指向全局对象。">
+<meta name="twitter:description" content="一、默认绑定&amp;emsp;&amp;emsp;最常用的函数调用类型：独立函数调用。&amp;emsp;&amp;emsp;非严格模式下：this—&amp;gt; window；&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;函数调用时，应用了this的默认绑定，因此this指向全局对象。">
 <meta name="twitter:image" content="http://yoursite.com/asset/img/javascript基础/this解析/this1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -190,21 +190,47 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、默认绑定"><a href="#一、默认绑定" class="headerlink" title="一、默认绑定"></a>一、默认绑定</h2><p>&emsp;&emsp;最常用的函数调用类型：独立函数调用。<br>&emsp;&emsp;非严格模式下：this—&gt; window；严格模式下：this—&gt; undefined<br>&emsp;&emsp;<img src="/asset/img/javascript基础/this解析/this1.png"><br>&emsp;&emsp;函数调用时，应用了this的默认绑定，因此this指向全局对象。<br><a id="more"></a>   </p>
+        <h2 id="一、默认绑定"><a href="#一、默认绑定" class="headerlink" title="一、默认绑定"></a>一、默认绑定</h2><p>&emsp;&emsp;最常用的函数调用类型：独立函数调用。<br>&emsp;&emsp;非严格模式下：this—&gt; window；<br>&emsp;&emsp;<img src="/asset/img/javascript基础/this解析/this1.png"><br>&emsp;&emsp;函数调用时，应用了this的默认绑定，因此this指向全局对象。<br><a id="more"></a>   </p>
 <h2 id="二、隐式绑定"><a href="#二、隐式绑定" class="headerlink" title="二、隐式绑定"></a>二、隐式绑定</h2><p>&emsp;&emsp;这个规则需要考虑的是调用位置是否有上下文对象，或者说是否被某个对象“拥有”或者“包含”。<br>&emsp;&emsp;在分析隐式绑定时，我们必须在一个对象内部包含一个指向函数的属性，并通过这个属性间接引用函数，从而把this隐式绑定到这个对象上。<br>&emsp;&emsp;<img src="/asset/img/javascript基础/this解析/this2.png"><br>&emsp;&emsp;但是，无论直接在obj中定义还是先定义在添加为引用属性，这个函数严格来说都不属于obj对象。      </p>
 <p>&emsp;&emsp;对象属性引用链中只有最顶层或者说最后一层会影响调用位置。例如：<br>&emsp;&emsp;<img src="/asset/img/javascript基础/this解析/this3.png">    </p>
 <h3 id="emsp-emsp-this隐式绑定问题-："><a href="#emsp-emsp-this隐式绑定问题-：" class="headerlink" title="&emsp;&emsp;this隐式绑定问题 ："></a>&emsp;&emsp;this隐式绑定问题 ：</h3><p>&emsp;&emsp;1、一个最常见的this绑定问题就是隐式绑定的函数会丢失绑定对象。也就是他会应用默认绑定。<br>&emsp;&emsp;<img src="/asset/img/javascript基础/this解析/this4.png">  </p>
 <p>&emsp;&emsp;2、还有一种情况是发生在传入回调函数时：<br>&emsp;&emsp;将函数的引用作为参数传入另一个函数，也会应用默认绑定。<br>&emsp;&emsp;<img src="/asset/img/javascript基础/this解析/this5.png">  </p>
 <h2 id="三、new绑定"><a href="#三、new绑定" class="headerlink" title="三、new绑定"></a>三、new绑定</h2><p>&emsp;&emsp;在js中，构造函数只是一些使用new操作符时被调用的函数。<br>&emsp;&emsp;使用new来调用函数，或者说发生构造函数调用时，会自动执行下面的操作：<br>&emsp;&emsp;1、创建（或者说构造）一个全新的对象<br>&emsp;&emsp;2、这个新对象会被执行[[原型]]连接<br>&emsp;&emsp;3、这个新对象会绑定到函数调用的this  （this指向这个对象）<br>&emsp;&emsp;4、如果函数没有其他返回对象，那么new表达式中的函数调用会自动返回这个新对象。</p>
 <h2 id="四、显示绑定"><a href="#四、显示绑定" class="headerlink" title="四、显示绑定"></a>四、显示绑定</h2><p>&emsp;&emsp;使用函数的call（）和apply（）方法。它们的第一个参数是一个对象，它们会把这个对象绑定到this，接着在调用函数时指定这个this。因为可以直接指定this的绑定对象，所以称之为显示绑定。<br>&emsp;&emsp;<img src="/asset/img/javascript基础/this解析/this6.png"><br>&emsp;&emsp;如果传入了一个原始值（字符串类型、数值类型、布尔类型）来当作this的绑定对象，这个原始值会被转换为它的对象形式（new String（）、new Number（）、new Boolean（）），通常称为“装箱”。<br>解决绑定丢失方法（如闭包中子函数this丢失）：</p>
-<h4 id="emsp-emsp-call和apply方法"><a href="#emsp-emsp-call和apply方法" class="headerlink" title="&emsp;&emsp;call和apply方法"></a>&emsp;&emsp;call和apply方法</h4><p>&emsp;&emsp;直接使用call和apply方法。<br>&emsp;&emsp;<img src="/asset/img/javascript基础/this解析/this7.png"><br>&emsp;&emsp;<img src="/asset/img/javascript基础/this解析/this8.png">   </p>
+<h4 id="emsp-emsp-call和apply方法"><a href="#emsp-emsp-call和apply方法" class="headerlink" title="&emsp;&emsp;call和apply方法"></a>&emsp;&emsp;call和apply方法</h4><p>&emsp;&emsp;直接使用call和apply方法。<br>&emsp;&emsp;call方法：<br>&emsp;&emsp;<img src="/asset/img/javascript基础/this解析/this7.png"><br>&emsp;&emsp;apply方法：<br>&emsp;&emsp;<img src="/asset/img/javascript基础/this解析/this8.png">   </p>
 <h4 id="emsp-emsp-bind方法"><a href="#emsp-emsp-bind方法" class="headerlink" title="&emsp;&emsp;bind方法"></a>&emsp;&emsp;bind方法</h4><p>&emsp;&emsp;<img src="/asset/img/javascript基础/this解析/this9.png"><br>&emsp;&emsp;由于bind绑定是一种非常常用的模式，在ES5中提供了内置的方法Function.prototype.bind,它的用法如下：<br>&emsp;&emsp;<img src="/asset/img/javascript基础/this解析/this10.png"></p>
 <h2 id="五、优先级"><a href="#五、优先级" class="headerlink" title="五、优先级"></a>五、优先级</h2><p>&emsp;&emsp;<strong>New绑定 &gt; 显示绑定 &gt; 隐式绑定 &gt; 默认绑定</strong></p>
 <h2 id="六、判断this"><a href="#六、判断this" class="headerlink" title="六、判断this"></a>六、判断this</h2><p>&emsp;&emsp;函数是否是在new中调用（new绑定）？如果是，this绑定的是新创建的对象<br>&emsp;&emsp;var bar = new foo()   </p>
 <p>&emsp;&emsp;函数是否通过call、apply（显示绑定）？如果是，this绑定的是指定的对象<br>&emsp;&emsp;var bar = foo.call(obj)   </p>
 <p>&emsp;&emsp;函数是否在某个上下文对象中调用（隐式绑定）？如果是，this绑定的是那个上下文对象<br>&emsp;&emsp;var bar =obj.foo()   </p>
-<p>&emsp;&emsp;如果都不是，使用默认绑定。在严格模式下，绑定到undefined；否则就绑定到全局对象。<br>&emsp;&emsp;var bar = foo()  </p>
-<h2 id="七、绑定例外"><a href="#七、绑定例外" class="headerlink" title="七、绑定例外"></a>七、绑定例外</h2><h4 id="emsp-emsp-1、被忽略的this"><a href="#emsp-emsp-1、被忽略的this" class="headerlink" title="&emsp;&emsp;1、被忽略的this"></a>&emsp;&emsp;1、被忽略的this</h4><p>&emsp;&emsp;如果把null或者undefined作为this的绑定对象传入call、apply或者bind，这些值在调用时会被忽略，实际上应用的是默认绑定。<br>&emsp;&emsp;foo.call(null); </p>
+<p>&emsp;&emsp;如果都不是，使用默认绑定。<br>&emsp;&emsp;var bar = foo()<br>&emsp;&emsp;严格模式下默认绑定的this值为undefined，其值不会转换为window，而在非严格模式下则会转化为window。另外，全局模式下的this指向window，不属于默认绑定。严格模式除了默认绑定，其他规则都适应。例如：  </p>
+<pre><code>&quot;use strict&quot;;
+//全局对象 ---window
+console.log(this);
+
+//new  ---new出来的对象
+function Animal(){
+    console.log(this);
+}
+let animal = new Animal();
+
+//obj.foo() --- obj
+function fun(){        
+    console.log(this); 
+    //console.log(this.a);  //2
+}
+var obj = {
+    a:2,
+    fun:fun
+}
+obj.fun();
+
+//foo  --- undefined，默认绑定失效
+function foo(){        
+    console.log(this);
+}
+foo();
+</code></pre><h2 id="七、绑定例外"><a href="#七、绑定例外" class="headerlink" title="七、绑定例外"></a>七、绑定例外</h2><h4 id="emsp-emsp-1、被忽略的this"><a href="#emsp-emsp-1、被忽略的this" class="headerlink" title="&emsp;&emsp;1、被忽略的this"></a>&emsp;&emsp;1、被忽略的this</h4><p>&emsp;&emsp;如果把null或者undefined作为this的绑定对象传入call、apply或者bind，这些值在调用时会被忽略，实际上应用的是默认绑定。<br>&emsp;&emsp;foo.call(null); </p>
 <h4 id="emsp-emsp-2、间接引用"><a href="#emsp-emsp-2、间接引用" class="headerlink" title="&emsp;&emsp;2、间接引用"></a>&emsp;&emsp;2、间接引用</h4><p>&emsp;&emsp;间接引用最容易发生在赋值时。创建函数的间接引用，调用这个函数会应用默认绑定。<br>&emsp;&emsp;<img src="/asset/img/javascript基础/this解析/this11.png"></p>
 <h4 id="emsp-emsp-3、箭头函数"><a href="#emsp-emsp-3、箭头函数" class="headerlink" title="&emsp;&emsp;3、箭头函数"></a>&emsp;&emsp;3、箭头函数</h4><p>&emsp;&emsp;箭头函数不使用this的四种标准规则，而是根据外层（函数或者全局）作用域来决定this。<br>&emsp;&emsp;<img src="/asset/img/javascript基础/this解析/this12.png"><br>&emsp;&emsp;如果将箭头函数改为一般函数<br>&emsp;&emsp;<img src="/asset/img/javascript基础/this解析/this13.png">   </p>
 <h2 id="八、this其他应用"><a href="#八、this其他应用" class="headerlink" title="八、this其他应用"></a>八、this其他应用</h2><h4 id="emsp-emsp-1、DOM-事件回调中的this"><a href="#emsp-emsp-1、DOM-事件回调中的this" class="headerlink" title="&emsp;&emsp;1、DOM 事件回调中的this"></a>&emsp;&emsp;1、DOM 事件回调中的this</h4><p>&emsp;&emsp;this绑定的是绑定该事件的DOM元素。</p>
@@ -212,6 +238,7 @@
 <h4 id="emsp-emsp-3、无法重写this"><a href="#emsp-emsp-3、无法重写this" class="headerlink" title="&emsp;&emsp;3、无法重写this"></a>&emsp;&emsp;3、无法重写this</h4><p>&emsp;&emsp;无法重写this，因为它是一个关键字。<br>&emsp;&emsp;<img src="/asset/img/javascript基础/this解析/this14.png">     </p>
 <h4 id="emsp-emsp-4、数组forEach中的this"><a href="#emsp-emsp-4、数组forEach中的this" class="headerlink" title="&emsp;&emsp;4、数组forEach中的this"></a>&emsp;&emsp;4、数组forEach中的this</h4><p>&emsp;&emsp;如果给forEach传递了thisArg参数，当调用时，它将被传给callback 函数，作为它的this值。否则，将会传入 undefined 作为它的this值。<br>&emsp;&emsp;<img src="/asset/img/javascript基础/this解析/this15.png"><br>&emsp;&emsp;<strong>注意</strong>：如果使用箭头函数表达式传入函数参数，thisArg 参数会被忽略，因为箭头&emsp;&emsp;函数在词法上绑定了this值。 </p>
 <p>&emsp;&emsp;<strong>对象复制函数</strong><br>&emsp;&emsp;下面的代码会创建一个给定对象的副本。<br>&emsp;&emsp;<img src="/asset/img/javascript基础/this解析/this16.png"></p>
+<p>【参考文章】<br>1、了不起的javascript<br>2、<a href="https://leohxj.gitbooks.io/front-end-database/javascript-basic/all-this.html" target="_blank" rel="external">详解this</a></p>
 
       
 
@@ -315,6 +342,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2017/08/14/js引擎/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          js引擎
+        
+      </div>
+    </a>
   
   
     <a href="/2017/08/11/执行上下文/" id="article-nav-older" class="article-nav-link-wrap">
@@ -423,6 +459,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
