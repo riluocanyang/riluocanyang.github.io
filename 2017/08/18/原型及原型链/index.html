@@ -8,13 +8,30 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>原型及原型链 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="一、创建对象1、对象字面量
+var obj = {a:1};
+2、Object构造函数
+var obj= new Objcet({a:1});
+&amp;emsp;&amp;emsp;但是，一般采用对象字面量语法。">
+<meta property="og:type" content="article">
 <meta property="og:title" content="原型及原型链">
 <meta property="og:url" content="http://yoursite.com/2017/08/18/原型及原型链/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:updated_time" content="2017-08-18T07:35:04.298Z">
+<meta property="og:description" content="一、创建对象1、对象字面量
+var obj = {a:1};
+2、Object构造函数
+var obj= new Objcet({a:1});
+&amp;emsp;&amp;emsp;但是，一般采用对象字面量语法。">
+<meta property="og:image" content="http://yoursite.com/asset/img/javascript基础/原型及原型链/prototype1.png">
+<meta property="og:updated_time" content="2017-08-19T07:13:49.042Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="原型及原型链">
+<meta name="twitter:description" content="一、创建对象1、对象字面量
+var obj = {a:1};
+2、Object构造函数
+var obj= new Objcet({a:1});
+&amp;emsp;&amp;emsp;但是，一般采用对象字面量语法。">
+<meta name="twitter:image" content="http://yoursite.com/asset/img/javascript基础/原型及原型链/prototype1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -170,7 +187,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="一、创建对象"><a href="#一、创建对象" class="headerlink" title="一、创建对象"></a>一、创建对象</h2><p>1、对象字面量</p>
+<pre><code>var obj = {a:1};
+</code></pre><p>2、Object构造函数</p>
+<pre><code>var obj= new Objcet({a:1});
+</code></pre><p>&emsp;&emsp;但是，一般采用对象字面量语法。<br><a id="more"></a></p>
+<h2 id="二、原型链"><a href="#二、原型链" class="headerlink" title="二、原型链"></a>二、原型链</h2><p>&emsp;&emsp;js不像其他语言，它没有传统的继承方法，它是通过原型继承的。<br>&emsp;&emsp;在js中，每个构造函数都有一个prototype属性指向原型对象，每个通过构造函数创建的对象也有一个<em>proto</em>属性指向对象的原型。原型也是一个对象，因此原型的<em>proto</em>指向原型的原型。直到一个 对象的<em>proto</em>为null，这样就形成了原型链。<br>&emsp;&emsp;原型链的形成是靠<em>proto</em>,而非prototype。<br>&emsp;&emsp;<img src="/asset/img/javascript基础/原型及原型链/prototype1.png"><br>&emsp;&emsp;<strong>注意几点</strong>：<br>&emsp;&emsp;1、函数有prototype属性，指向原型对象。也有<em>proto</em>属性，指向函数自身的原型，一般是Function.prototype。<br>&emsp;&emsp;2、对象没有prototype属性，有<em>proto</em>属性，指向对象的原型。<br>&emsp;&emsp;3、在原型对象上，指向构造函数。<br>&emsp;&emsp;4、原型链的顶端为null，即Object.prototype.<em>proto</em> = null.<br>5、当使用Obj.<em>proto</em>时，可以理解为返回了Object.getPrototypeOf(obj);</p>
+<h2 id="三、prototype对象"><a href="#三、prototype对象" class="headerlink" title="三、prototype对象"></a>三、prototype对象</h2><p>&emsp;&emsp;所有实例对象需要共享的属性和方法放在prototype对象里，不需要共享的放在构造函数里。prototype对象实现数据共享，减少资源的浪费。</p>
+<h2 id="四、原型链的使用方式–继承"><a href="#四、原型链的使用方式–继承" class="headerlink" title="四、原型链的使用方式–继承"></a>四、原型链的使用方式–继承</h2><p>&emsp;&emsp;我们在实现继承时，会将一个函数的prototype属性指向另一个函数的实例对象，而不是原型对象。因为这将导致两个对象共享同一个原型对象，更改其中一个对象的原型，会改变另一个。这是不希望发生的。</p>
+<p>【参考文章】<br><a href="https://leohxj.gitbooks.io/front-end-database/javascript-basic/prototypal-inheritance.html" target="_blank" rel="external">原型继承</a><br><a href="http://warjiang.github.io/devcat/2016/05/12/JS%E4%B8%ADnew%E5%88%B0%E5%BA%95%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88/" target="_blank" rel="external">JS中new到底发生了什么</a><br><a href="http://www.ruanyifeng.com/blog/2011/06/designing_ideas_of_inheritance_mechanism_in_javascript.html" target="_blank" rel="external">Javascript继承机制的设计思想</a>   </p>
+
       
 
       
@@ -273,6 +299,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2017/08/19/js创建对象/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          js创建对象
+        
+      </div>
+    </a>
   
   
     <a href="/2017/08/16/正则表达式/" id="article-nav-older" class="article-nav-link-wrap">

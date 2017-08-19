@@ -30,7 +30,7 @@
 <meta property="og:image" content="http://yoursite.com/asset/img/javascript基础/this解析/this14.png">
 <meta property="og:image" content="http://yoursite.com/asset/img/javascript基础/this解析/this15.png">
 <meta property="og:image" content="http://yoursite.com/asset/img/javascript基础/this解析/this16.png">
-<meta property="og:updated_time" content="2017-08-18T07:33:08.586Z">
+<meta property="og:updated_time" content="2017-08-19T06:13:25.256Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="this解析">
 <meta name="twitter:description" content="一、默认绑定&amp;emsp;&amp;emsp;最常用的函数调用类型：独立函数调用。&amp;emsp;&amp;emsp;非严格模式下：this—&amp;gt; window；&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;函数调用时，应用了this的默认绑定，因此this指向全局对象。">
@@ -195,8 +195,12 @@
 <p>&emsp;&emsp;对象属性引用链中只有最顶层或者说最后一层会影响调用位置。例如：<br>&emsp;&emsp;<img src="/asset/img/javascript基础/this解析/this3.png">    </p>
 <h3 id="emsp-emsp-this隐式绑定问题-："><a href="#emsp-emsp-this隐式绑定问题-：" class="headerlink" title="&emsp;&emsp;this隐式绑定问题 ："></a>&emsp;&emsp;this隐式绑定问题 ：</h3><p>&emsp;&emsp;1、一个最常见的this绑定问题就是隐式绑定的函数会丢失绑定对象。也就是他会应用默认绑定。<br>&emsp;&emsp;<img src="/asset/img/javascript基础/this解析/this4.png">  </p>
 <p>&emsp;&emsp;2、还有一种情况是发生在传入回调函数时：<br>&emsp;&emsp;将函数的引用作为参数传入另一个函数，也会应用默认绑定。<br>&emsp;&emsp;<img src="/asset/img/javascript基础/this解析/this5.png">  </p>
-<h2 id="三、new绑定"><a href="#三、new绑定" class="headerlink" title="三、new绑定"></a>三、new绑定</h2><p>&emsp;&emsp;在js中，构造函数只是一些使用new操作符时被调用的函数。<br>&emsp;&emsp;使用new来调用函数，或者说发生构造函数调用时，会自动执行下面的操作：<br>&emsp;&emsp;1、创建（或者说构造）一个全新的对象<br>&emsp;&emsp;2、这个新对象会被执行[[原型]]连接<br>&emsp;&emsp;3、这个新对象会绑定到函数调用的this  （this指向这个对象）<br>&emsp;&emsp;4、如果函数没有其他返回对象，那么new表达式中的函数调用会自动返回这个新对象。</p>
-<h2 id="四、显示绑定"><a href="#四、显示绑定" class="headerlink" title="四、显示绑定"></a>四、显示绑定</h2><p>&emsp;&emsp;使用函数的call（）和apply（）方法。它们的第一个参数是一个对象，它们会把这个对象绑定到this，接着在调用函数时指定这个this。因为可以直接指定this的绑定对象，所以称之为显示绑定。<br>&emsp;&emsp;<img src="/asset/img/javascript基础/this解析/this6.png"><br>&emsp;&emsp;如果传入了一个原始值（字符串类型、数值类型、布尔类型）来当作this的绑定对象，这个原始值会被转换为它的对象形式（new String（）、new Number（）、new Boolean（）），通常称为“装箱”。<br>解决绑定丢失方法（如闭包中子函数this丢失）：</p>
+<h2 id="三、new绑定"><a href="#三、new绑定" class="headerlink" title="三、new绑定"></a>三、new绑定</h2><p>&emsp;&emsp;在js中，构造函数只是一些使用new操作符时被调用的函数。<br>&emsp;&emsp;使用new来调用函数，或者说发生构造函数调用时，会自动执行下面的操作：<br>&emsp;&emsp;1、创建（或者说构造）一个全新的对象<br>&emsp;&emsp;2、这个新对象会被执行[[原型]]连接<br>&emsp;&emsp;3、这个新对象会绑定到函数调用的this  （this指向这个对象）<br>&emsp;&emsp;4、如果函数没有其他返回对象，那么new表达式中的函数调用会自动返回这个新对象。<br>&emsp;&emsp;伪代码表示如下：</p>
+<pre><code>1、var o = new Object();
+2、o._proto = A.prototype;
+3、A.call(o);
+4、如果函数没有其他返回对象，那么new表达式中的函数调用会自动返回o这个对象.
+</code></pre><h2 id="四、显示绑定"><a href="#四、显示绑定" class="headerlink" title="四、显示绑定"></a>四、显示绑定</h2><p>&emsp;&emsp;使用函数的call（）和apply（）方法。它们的第一个参数是一个对象，它们会把这个对象绑定到this，接着在调用函数时指定这个this。因为可以直接指定this的绑定对象，所以称之为显示绑定。<br>&emsp;&emsp;<img src="/asset/img/javascript基础/this解析/this6.png"><br>&emsp;&emsp;如果传入了一个原始值（字符串类型、数值类型、布尔类型）来当作this的绑定对象，这个原始值会被转换为它的对象形式（new String（）、new Number（）、new Boolean（）），通常称为“装箱”。<br>解决绑定丢失方法（如闭包中子函数this丢失）：</p>
 <h4 id="emsp-emsp-call和apply方法"><a href="#emsp-emsp-call和apply方法" class="headerlink" title="&emsp;&emsp;call和apply方法"></a>&emsp;&emsp;call和apply方法</h4><p>&emsp;&emsp;直接使用call和apply方法。<br>&emsp;&emsp;call方法：<br>&emsp;&emsp;<img src="/asset/img/javascript基础/this解析/this7.png"><br>&emsp;&emsp;apply方法：<br>&emsp;&emsp;<img src="/asset/img/javascript基础/this解析/this8.png">   </p>
 <h4 id="emsp-emsp-bind方法"><a href="#emsp-emsp-bind方法" class="headerlink" title="&emsp;&emsp;bind方法"></a>&emsp;&emsp;bind方法</h4><p>&emsp;&emsp;<img src="/asset/img/javascript基础/this解析/this9.png"><br>&emsp;&emsp;由于bind绑定是一种非常常用的模式，在ES5中提供了内置的方法Function.prototype.bind,它的用法如下：<br>&emsp;&emsp;<img src="/asset/img/javascript基础/this解析/this10.png"></p>
 <h2 id="五、优先级"><a href="#五、优先级" class="headerlink" title="五、优先级"></a>五、优先级</h2><p>&emsp;&emsp;<strong>New绑定 &gt; 显示绑定 &gt; 隐式绑定 &gt; 默认绑定</strong></p>

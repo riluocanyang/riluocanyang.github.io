@@ -6,14 +6,42 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: javascript | Hexo</title>
+  <title>js创建对象 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/tags/javascript/index.html">
+  <meta name="description" content="&amp;emsp;&amp;emsp;js创建对象的方法：&amp;emsp;&amp;emsp;除了普通那个的对象字面量和new Object外，还有如下方法：
+一、工厂模式function Person(name) {
+  var o = new Object();
+  o.name = name;
+  o.say = function() {
+    alert(this.name);
+  }
+  return o;
+}">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js创建对象">
+<meta property="og:url" content="http://yoursite.com/2017/08/19/js创建对象/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;js创建对象的方法：&amp;emsp;&amp;emsp;除了普通那个的对象字面量和new Object外，还有如下方法：
+一、工厂模式function Person(name) {
+  var o = new Object();
+  o.name = name;
+  o.say = function() {
+    alert(this.name);
+  }
+  return o;
+}">
+<meta property="og:updated_time" content="2017-08-19T13:11:49.493Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="js创建对象">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;js创建对象的方法：&amp;emsp;&amp;emsp;除了普通那个的对象字面量和new Object外，还有如下方法：
+一、工厂模式function Person(name) {
+  var o = new Object();
+  o.name = name;
+  o.say = function() {
+    alert(this.name);
+  }
+  return o;
+}">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -149,36 +177,153 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-js创建对象" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      js创建对象
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/19/js创建对象/" class="archive-article-date">
+
+        
+        <a href="/2017/08/19/js创建对象/" class="archive-article-date">
   	<time datetime="2017-08-19T11:22:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-19</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/19/js创建对象/">js创建对象</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&emsp;&emsp;js创建对象的方法：<br>&emsp;&emsp;除了普通那个的对象字面量和new Object外，还有如下方法：</p>
+<h2 id="一、工厂模式"><a href="#一、工厂模式" class="headerlink" title="一、工厂模式"></a>一、工厂模式</h2><pre><code>function Person(name) {
+  var o = new Object();
+  o.name = name;
+  o.say = function() {
+    alert(this.name);
+  }
+  return o;
+}
+var person1 = Person(&apos;per&apos;);
+</code></pre><p>&emsp;&emsp;缺点：1、无法识别对象的类型，以为都来自Object，无法得知来自Person。<br>&emsp;&emsp;&emsp;&emsp;&emsp;2、say方法可以共享，但是却每次都存储，浪费资源。（即每个方法都要在每个对象上重新创建一遍）。</p>
+<h2 id="二、构造函数模式"><a href="#二、构造函数模式" class="headerlink" title="二、构造函数模式"></a>二、构造函数模式</h2><pre><code>function Person(name) {
+  this.name = name;
+  this.say = function() {
+    alert(this.name)
+  }
+}
+var person1 = new Person(&apos;per&apos;);
+</code></pre><p>&emsp;&emsp;构造函数与其他函数的区别：构造函数是通过new操作符来调用的。<br>&emsp;&emsp;优点：可以通过instanceof或constructor识别对象的类型。<br>&emsp;&emsp;缺点：每次创建对象实例每个方法都要被创建一次。<br>&emsp;&emsp;<strong>注意</strong>:如果<strong>不使用new</strong>，即var person1 = Person(‘per’);此时this指向window，会将属性和方法添加到window对象上。如：</p>
+<pre><code>var person1 = new Person(&apos;per&apos;);
+console.log(window.name);  //per
+</code></pre><p>&emsp;&emsp;<strong>改进</strong>：可以把函数定义放到构造函数外面</p>
+<pre><code>function Person(name){
+    this.name = name
+}
+function sayName(){
+    console.log(this.name);
+}
+var person1 = new Person(&apos;person1);
+</code></pre><p>&emsp;&emsp;缺点：毫无封装性。</p>
+<h2 id="三、原型模式"><a href="#三、原型模式" class="headerlink" title="三、原型模式"></a>三、原型模式</h2><pre><code>function Person() {}
+Person.prototype.name = &apos;kevin&apos;;
+Person.prototype.say = function() {
+  console.log(this.name);
+}
+var person1 = new Person();
+</code></pre><p>&emsp;&emsp;优点：方法不会重新创建，它们是共享的。<br>&emsp;&emsp;缺点：1、所有的属性和方法都共享<br>&emsp;&emsp;&emsp;&emsp;&emsp;2、不能初始化参数。<br>&emsp;&emsp;<strong>注意</strong>：通过对象字面量给Person.prototype赋值会导致constructor改变。如下面的改进：<br>&emsp;&emsp;改进：上述方法要每次都写Person.prototype,可改用原型语法的简写：</p>
+<pre><code>function Person(){}
+Person.prototype = {
+    name: &apos;kevin&apos;,
+    sayName: function(){
+        console.log(this.name);
+    }
+};
+var person1 = new Person();
 
-        <div class="article-info info-on-right">
-          
+//再次改进：
+
+function Person(){}
+Person.prototype = {
+    constructor: Person,
+    name: &apos;kevin&apos;,
+    sayName: function(){
+        console.log(this.name);
+    }
+}
+</code></pre><h2 id="四、构造函数和原型组合模式"><a href="#四、构造函数和原型组合模式" class="headerlink" title="四、构造函数和原型组合模式"></a>四、构造函数和原型组合模式</h2><pre><code>function Person(name) {
+  this.name = name
+}
+Person.prototype.say = function() {
+  console.log(this.name)
+}
+var person1 = new Person(&apos;per&apos;)
+</code></pre><p>&emsp;&emsp;优点：该共享的共享，该私有的私有，是使用最广泛的方式。<br>&emsp;&emsp;改进：有人看到独立的构造函数和原型时，会非常困惑。因此，创建了动态原型模式。</p>
+<h3 id="emsp-emsp-动态原型模式"><a href="#emsp-emsp-动态原型模式" class="headerlink" title="&emsp;&emsp;动态原型模式"></a>&emsp;&emsp;动态原型模式</h3><pre><code>function Person(name){
+    this.name = name;
+    if(typeof this.say != &quot;function&quot;){
+        Person.prototype.say = function(){
+            console.log(this.name);
+        }
+    }
+}
+var person1 = new Person(&apos;per&apos;);
+</code></pre><p>&emsp;&emsp;注意：不能用对象字面量修改原型链。</p>
+<h2 id="五、寄生构造函数模式"><a href="#五、寄生构造函数模式" class="headerlink" title="五、寄生构造函数模式"></a>五、寄生构造函数模式</h2><pre><code>function Person(name){
+    var o  = new Object()
+    o.name = name;
+    o.say = function(){
+        console.log(this.name);
+    }
+    return o;
+}
+var person1 = new Person(&apos;per&apos;);
+</code></pre><p>&emsp;&emsp;所谓的寄生构造模式就是比工厂模式在创建对象的时候多了一个new,实际上两者的结果是一样的。<br>&emsp;&emsp;在可以使用其他模式的情况下，不要使用这种模式。</p>
+<h2 id="六、稳妥构造函数模式"><a href="#六、稳妥构造函数模式" class="headerlink" title="六、稳妥构造函数模式"></a>六、稳妥构造函数模式</h2><pre><code>function Person(name) {
+  var o = new Object()
+  o.say = function() {
+    console.log(name)   //name: 变量，闭包，作用域
+  }
+}
+var person1 = Person(&apos;per&apos;);
+person1.name  // undefined
+person1.say() //per
+person1.name=&quot;kevin&quot;    person1.name:属性
+person1.say()  //per
+console.log(person1.name)  //kevin
+</code></pre><p>&emsp;&emsp;所谓稳妥对象就是没有公共属性，而且其方法也不引用this的对象。<br>&emsp;&emsp;与寄生构造函数的两点不同：<br>&emsp;&emsp;1、新创建的实例方法不使用this<br>&emsp;&emsp;2、不使用new操作符调用函数<br>&emsp;&emsp;优点：安全<br>&emsp;&emsp;缺点：无法识别对象所属类别</p>
+<p>【参考文章】<br><a href="https://juejin.im/entry/58291447128fe1005cd41c52" target="_blank" rel="external">JavaScript 创建对象的 7 种方法</a><br><a href="https://github.com/mqyqingfeng/Blog/issues/15" target="_blank" rel="external">JavaScript深入之创建对象的多种方式以及优缺点</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -190,373 +335,88 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/19/js创建对象/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/18/原型及原型链/" class="archive-article-date">
-  	<time datetime="2017-08-18T07:34:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-18</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/18/原型及原型链/">原型及原型链</a>
-    </h1>
+  
+    <a href="/2017/08/18/原型及原型链/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">原型及原型链</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/16/正则表达式/" class="archive-article-date">
-  	<time datetime="2017-08-16T07:51:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/16/正则表达式/">正则表达式</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">正则表达式</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/15/算法-排序/" class="archive-article-date">
-  	<time datetime="2017-08-15T02:24:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/15/算法-排序/">算法--排序</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/14/js引擎/" class="archive-article-date">
-  	<time datetime="2017-08-14T10:01:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/14/js引擎/">js引擎</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/14/this解析/" class="archive-article-date">
-  	<time datetime="2017-08-14T06:55:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/14/this解析/">this解析</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/11/执行上下文/" class="archive-article-date">
-  	<time datetime="2017-08-11T00:32:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/11/执行上下文/">执行上下文</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/10/作用域和闭包/" class="archive-article-date">
-  	<time datetime="2017-08-10T07:20:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/10/作用域和闭包/">作用域和闭包</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/09/操作符/" class="archive-article-date">
-  	<time datetime="2017-08-09T01:20:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/09/操作符/">操作符</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/07/javascript基础---引用类型/" class="archive-article-date">
-  	<time datetime="2017-08-07T01:20:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/07/javascript基础---引用类型/">javascript基础----引用类型</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/tags/javascript/page/2/">2</a><a class="extend next" rel="next" href="/tags/javascript/page/2/">Next &raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -579,9 +439,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
