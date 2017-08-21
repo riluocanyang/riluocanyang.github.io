@@ -151,6 +151,56 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-es6" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/21/es6/">es6</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/21/es6/" class="archive-article-date">
+  	<time datetime="2017-08-21T07:51:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/21/es6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-js继承" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -235,105 +285,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>&emsp;&emsp;js创建对象的方法：<br>&emsp;&emsp;除了普通那个的对象字面量和new Object外，还有如下方法：</p>
-<h2 id="一、工厂模式"><a href="#一、工厂模式" class="headerlink" title="一、工厂模式"></a>一、工厂模式</h2><pre><code>function Person(name) {
-  var o = new Object();
-  o.name = name;
-  o.say = function() {
-    alert(this.name);
-  }
-  return o;
-}
-var person1 = Person(&apos;per&apos;);
-</code></pre><p>&emsp;&emsp;缺点：1、无法识别对象的类型，以为都来自Object，无法得知来自Person。<br>&emsp;&emsp;&emsp;&emsp;&emsp;2、say方法可以共享，但是却每次都存储，浪费资源。（即每个方法都要在每个对象上重新创建一遍）。</p>
-<h2 id="二、构造函数模式"><a href="#二、构造函数模式" class="headerlink" title="二、构造函数模式"></a>二、构造函数模式</h2><pre><code>function Person(name) {
-  this.name = name;
-  this.say = function() {
-    alert(this.name)
-  }
-}
-var person1 = new Person(&apos;per&apos;);
-</code></pre><p>&emsp;&emsp;构造函数与其他函数的区别：构造函数是通过new操作符来调用的。<br>&emsp;&emsp;优点：可以通过instanceof或constructor识别对象的类型。<br>&emsp;&emsp;缺点：每次创建对象实例每个方法都要被创建一次。<br>&emsp;&emsp;<strong>注意</strong>:如果<strong>不使用new</strong>，即var person1 = Person(‘per’);此时this指向window，会将属性和方法添加到window对象上。如：</p>
-<pre><code>var person1 = new Person(&apos;per&apos;);
-console.log(window.name);  //per
-</code></pre><p>&emsp;&emsp;<strong>改进</strong>：可以把函数定义放到构造函数外面</p>
-<pre><code>function Person(name){
-    this.name = name
-}
-function sayName(){
-    console.log(this.name);
-}
-var person1 = new Person(&apos;person1);
-</code></pre><p>&emsp;&emsp;缺点：毫无封装性。</p>
-<h2 id="三、原型模式"><a href="#三、原型模式" class="headerlink" title="三、原型模式"></a>三、原型模式</h2><pre><code>function Person() {}
-Person.prototype.name = &apos;kevin&apos;;
-Person.prototype.say = function() {
-  console.log(this.name);
-}
-var person1 = new Person();
-</code></pre><p>&emsp;&emsp;优点：方法不会重新创建，它们是共享的。<br>&emsp;&emsp;缺点：1、所有的属性和方法都共享<br>&emsp;&emsp;&emsp;&emsp;&emsp;2、不能初始化参数。<br>&emsp;&emsp;<strong>注意</strong>：通过对象字面量给Person.prototype赋值会导致constructor改变。如下面的改进：<br>&emsp;&emsp;改进：上述方法要每次都写Person.prototype,可改用原型语法的简写：</p>
-<pre><code>function Person(){}
-Person.prototype = {
-    name: &apos;kevin&apos;,
-    sayName: function(){
-        console.log(this.name);
-    }
-};
-var person1 = new Person();
-
-//再次改进：
-
-function Person(){}
-Person.prototype = {
-    constructor: Person,
-    name: &apos;kevin&apos;,
-    sayName: function(){
-        console.log(this.name);
-    }
-}
-</code></pre><h2 id="四、构造函数和原型组合模式"><a href="#四、构造函数和原型组合模式" class="headerlink" title="四、构造函数和原型组合模式"></a>四、构造函数和原型组合模式</h2><pre><code>function Person(name) {
-  this.name = name
-}
-Person.prototype.say = function() {
-  console.log(this.name)
-}
-var person1 = new Person(&apos;per&apos;)
-</code></pre><p>&emsp;&emsp;优点：该共享的共享，该私有的私有，是使用最广泛的方式。<br>&emsp;&emsp;改进：有人看到独立的构造函数和原型时，会非常困惑。因此，创建了动态原型模式。</p>
-<h3 id="emsp-emsp-动态原型模式"><a href="#emsp-emsp-动态原型模式" class="headerlink" title="&emsp;&emsp;动态原型模式"></a>&emsp;&emsp;动态原型模式</h3><pre><code>function Person(name){
-    this.name = name;
-    if(typeof this.say != &quot;function&quot;){
-        Person.prototype.say = function(){
-            console.log(this.name);
-        }
-    }
-}
-var person1 = new Person(&apos;per&apos;);
-</code></pre><p>&emsp;&emsp;注意：不能用对象字面量修改原型链。</p>
-<h2 id="五、寄生构造函数模式"><a href="#五、寄生构造函数模式" class="headerlink" title="五、寄生构造函数模式"></a>五、寄生构造函数模式</h2><pre><code>function Person(name){
-    var o  = new Object()
-    o.name = name;
-    o.say = function(){
-        console.log(this.name);
-    }
-    return o;
-}
-var person1 = new Person(&apos;per&apos;);
-</code></pre><p>&emsp;&emsp;所谓的寄生构造模式就是比工厂模式在创建对象的时候多了一个new,实际上两者的结果是一样的。<br>&emsp;&emsp;在可以使用其他模式的情况下，不要使用这种模式。</p>
-<h2 id="六、稳妥构造函数模式"><a href="#六、稳妥构造函数模式" class="headerlink" title="六、稳妥构造函数模式"></a>六、稳妥构造函数模式</h2><pre><code>function Person(name) {
-  var o = new Object()
-  o.say = function() {
-    console.log(name)   //name: 变量，闭包，作用域
-  }
-}
-var person1 = Person(&apos;per&apos;);
-person1.name  // undefined
-person1.say() //per
-person1.name=&quot;kevin&quot;    person1.name:属性
-person1.say()  //per
-console.log(person1.name)  //kevin
-</code></pre><p>&emsp;&emsp;所谓稳妥对象就是没有公共属性，而且其方法也不引用this的对象。<br>&emsp;&emsp;与寄生构造函数的两点不同：<br>&emsp;&emsp;1、新创建的实例方法不使用this<br>&emsp;&emsp;2、不使用new操作符调用函数<br>&emsp;&emsp;优点：安全<br>&emsp;&emsp;缺点：无法识别对象所属类别</p>
-<p>【参考文章】<br><a href="https://juejin.im/entry/58291447128fe1005cd41c52" target="_blank" rel="external">JavaScript 创建对象的 7 种方法</a><br><a href="https://github.com/mqyqingfeng/Blog/issues/15" target="_blank" rel="external">JavaScript深入之创建对象的多种方式以及优缺点</a></p>
-
+        <p>&emsp;&emsp;js创建对象的方法：<br>&emsp;&emsp;除了普通那个的对象字面量和new Object外，还有如下方法：<br>
+        
+          <a class="article-more-a" href="/2017/08/19/js创建对象/#more">more >></a>
+        
       
 
       
@@ -831,70 +786,6 @@ console.log(person1.name)  //kevin
 
 
   
-    <article id="post-操作符" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/09/操作符/">操作符</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/09/操作符/" class="archive-article-date">
-  	<time datetime="2017-08-09T01:20:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="相等（-）操作符"><a href="#相等（-）操作符" class="headerlink" title="相等（==）操作符"></a>相等（==）操作符</h2><p>&emsp;&emsp;相等操作符的最终结果是将其他非数值类型转化为数值类型。相等操作符转换规则如下：
-        
-          <a class="article-more-a" href="/2017/08/09/操作符/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/09/操作符/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -992,11 +883,11 @@ console.log(person1.name)  //kevin
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
