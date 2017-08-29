@@ -6,18 +6,28 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>js继承 | Hexo</title>
+  <title>url,enter后发生了什么 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="&amp;emsp;&amp;emsp;较为常用的js继承有原型链继承、借用构造函数、组合式继承、继承组合式继承以及ES6继承。">
+  <meta name="description" content="一、浏览器解析URL&amp;emsp;&amp;emsp;协议：eg:http 、https、 ftp&amp;emsp;&amp;emsp;域名：eg:www.google.com.hk&amp;emsp;&amp;emsp;端口：eg:80&amp;emsp;&amp;emsp;…&amp;emsp;&amp;emsp;浏览器会根据识别出的协议发送请求。
+二、浏览器查询域名的IP地址&amp;emsp;&amp;emsp;在发送请求前，浏览器会检查Web缓存，然后调用网络请求的方法。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js继承">
-<meta property="og:url" content="http://yoursite.com/2017/08/20/js继承/index.html">
+<meta property="og:title" content="url,enter后发生了什么">
+<meta property="og:url" content="http://yoursite.com/2017/08/25/url-enter后发生了什么/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;较为常用的js继承有原型链继承、借用构造函数、组合式继承、继承组合式继承以及ES6继承。">
-<meta property="og:updated_time" content="2017-08-21T07:44:18.603Z">
+<meta property="og:description" content="一、浏览器解析URL&amp;emsp;&amp;emsp;协议：eg:http 、https、 ftp&amp;emsp;&amp;emsp;域名：eg:www.google.com.hk&amp;emsp;&amp;emsp;端口：eg:80&amp;emsp;&amp;emsp;…&amp;emsp;&amp;emsp;浏览器会根据识别出的协议发送请求。
+二、浏览器查询域名的IP地址&amp;emsp;&amp;emsp;在发送请求前，浏览器会检查Web缓存，然后调用网络请求的方法。">
+<meta property="og:image" content="http://yoursite.com/asset/img/javascript基础/ /tcp1.png">
+<meta property="og:image" content="http://yoursite.com/asset/img/javascript基础/enter后发生了什么/tcp3.png">
+<meta property="og:image" content="http://yoursite.com/asset/img/javascript基础/enter后发生了什么/tcp2.png">
+<meta property="og:image" content="http://yoursite.com/asset/img/javascript基础/enter后发生了什么/tcp4.png">
+<meta property="og:image" content="http://yoursite.com/asset/img/javascript基础/enter后发生了什么/tcp5.png">
+<meta property="og:image" content="http://yoursite.com/asset/img/javascript基础/enter后发生了什么/tcp6.png">
+<meta property="og:updated_time" content="2017-08-27T16:00:29.783Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js继承">
-<meta name="twitter:description" content="&amp;emsp;&amp;emsp;较为常用的js继承有原型链继承、借用构造函数、组合式继承、继承组合式继承以及ES6继承。">
+<meta name="twitter:title" content="url,enter后发生了什么">
+<meta name="twitter:description" content="一、浏览器解析URL&amp;emsp;&amp;emsp;协议：eg:http 、https、 ftp&amp;emsp;&amp;emsp;域名：eg:www.google.com.hk&amp;emsp;&amp;emsp;端口：eg:80&amp;emsp;&amp;emsp;…&amp;emsp;&amp;emsp;浏览器会根据识别出的协议发送请求。
+二、浏览器查询域名的IP地址&amp;emsp;&amp;emsp;在发送请求前，浏览器会检查Web缓存，然后调用网络请求的方法。">
+<meta name="twitter:image" content="http://yoursite.com/asset/img/javascript基础/ /tcp1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -153,164 +163,42 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-js继承" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-url-enter后发生了什么" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      js继承
+      url,enter后发生了什么
     </h1>
   
 
         
-        <a href="/2017/08/20/js继承/" class="archive-article-date">
-  	<time datetime="2017-08-20T05:08:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-20</time>
+        <a href="/2017/08/25/url-enter后发生了什么/" class="archive-article-date">
+  	<time datetime="2017-08-25T06:20:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>&emsp;&emsp;较为常用的js继承有原型链继承、借用构造函数、组合式继承、继承组合式继承以及ES6继承。<br><a id="more"></a></p>
-<h2 id="一、原型链继承"><a href="#一、原型链继承" class="headerlink" title="一、原型链继承"></a>一、原型链继承</h2><pre><code>function Parent(name){    
-       this.name = name;   
-}
-Parent.prototype.sayName = function() {
-    console.log(&apos;parent name is &apos; + this.name + &apos;!&apos;);
-};
-
-function Child(name) {
-    this.name = name;
-}
-// 使用原型链继承Parent构造函数
-Child.prototype = new Parent(&apos;father&apos;);
-var child1 = new Child();
-</code></pre><p>&emsp;&emsp;缺点：1、子类型无法给超类传递参数；<br>&emsp;&emsp;&emsp;&emsp;&emsp;2、引用类型的属性被所有实例共享。</p>
-<h2 id="二、借用构造函数"><a href="#二、借用构造函数" class="headerlink" title="二、借用构造函数"></a>二、借用构造函数</h2><pre><code>function Parent(name) {
-    this.name = name;
-    this.friends = [&apos;a&apos;,&apos;b&apos;];
-}
-
-function Child(name) {
-    // 通过call,apply 改变对象的this指向来继承
-    Parent.call(this, name);
-    // Parent.apply(this, arguments);
-}
-
-var child = new Child(&apos;son&apos;);
-child.friends.push(&apos;c&apos;);
-</code></pre><p>&emsp;&emsp;优点：1、避免了引用类型的属性被所有实例共享<br>&emsp;&emsp;&emsp;&emsp;&emsp;2、可以在child中向Parent传参<br>&emsp;&emsp;缺点：没有原型，方法都在构造函数中定义，每次创建实例都会创建一遍方法。</p>
-<h2 id="三、组合继承（原型链继承-借用构造函数继承）"><a href="#三、组合继承（原型链继承-借用构造函数继承）" class="headerlink" title="三、组合继承（原型链继承+借用构造函数继承）"></a>三、组合继承（原型链继承+借用构造函数继承）</h2><pre><code>/*
-  使用原型链实现对原型属性和方法的继承
-  使用借用构造函数实现对实例属性的继承
-*/
-function Parent(name) {
-    this.name = name;
-}
-Parent.prototype.sayName = function() {
-    console.log(&apos;parent name is &apos; + this.name + &apos;!&apos;);
-};
-
-function Child(name) {
-    // 通过call,apply 改变对象的this指向来继承
-    Parent.call(this, name);  // 第二次调用 
-    // Parent.apply(this, arguments);
-}
-Child.prototype = new Parent(&apos;father&apos;);  // 第一次调用
-Child.prototype.constructor = Child;
-Child.prototype.sayName = function() {
-    console.log(&apos;child name is &apos; + this.name + &apos;!&apos;);
-};
-var child = new Child(&apos;son&apos;);
-</code></pre><p>&emsp;&emsp;优点：融合了原型链和借用构造函数的优点，是常用的继承模式。<br>&emsp;&emsp;缺点：超类构造函数会被调用2次：一次是在创建子类型原型的时候，另一次是在子类型构造函数的内部。<br>&emsp;&emsp;<strong>注意</strong>：Chid.prototype.getName要放在Child.prototype = new Parent()之后。</p>
-<h2 id="四、原型式继承"><a href="#四、原型式继承" class="headerlink" title="四、原型式继承"></a>四、原型式继承</h2><pre><code>/* 
-    基于一个对象上，将这个对象作为原型。
-*/
-var ob = { name: &apos;son&apos;, friends: [&apos;a&apos;, &apos;b&apos;] };
-
-function object(obj) {
-    /**
-     * 创建一个构造函数F
-     */
-    function F() {
-        // 空构造函数F
-    }
-    F.prototype = obj;
-    return new F();
-}
-
-var ob1 = object(ob);
-console.log(ob1.name);  //son
-ob1.name = &apos;ob1&apos;;
-ob1.friends.push(&apos;c&apos;);
-console.log(ob1.name); // ob1
-console.log(ob1.friends); //[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;]
-</code></pre><p>&emsp;&emsp;<strong>注意</strong>：在未给ob1对象添加name属性时，ob1.name实际上引用的ob.name。之后给ob1对象添加了name属性，但并未修改原型ob上的name。</p>
-<h2 id="五、寄生式继承"><a href="#五、寄生式继承" class="headerlink" title="五、寄生式继承"></a>五、寄生式继承</h2><pre><code>/* 在函数内部以某种方式增强对象 */
-var ob = { name: &apos;son&apos;, friends: [&apos;a&apos;, &apos;b&apos;] };
-
-// 原型式继承再ECMAScript5 有了一新的规范写法，Object.create(ob) 效果是一样的
-
-function createOb(o) {
-    var newob = Object.create(o); // 创建对象
-    newob.sayname = function() { // 增强对象
-        console.log(this.name);
-    };
-    return newob; // 指定对象
-}
-var ob1 = createOb(ob);
-ob1.sayname(); // son
-</code></pre><h2 id="六、寄生组合式继承"><a href="#六、寄生组合式继承" class="headerlink" title="六、寄生组合式继承"></a>六、寄生组合式继承</h2><pre><code>function Parent(name) {
-    this.name = name;
-}
-Parent.prototype.sayName = function() {
-    console.log(&apos;parent name is &apos; + this.name + &apos;!&apos;);
-};
-
-function Child(name, parentName) {
-    Parent.call(this, parentName);
-    this.name = name;
-}
-
-// 实现继承
-Child.prototype = Object.create(Parent.prototype); 
-Child.prototype.construtor = Child;
-
-Child.prototype.sayName = function() {
-    console.log(&apos;child name is &apos; + this.name + &apos;!&apos;);
-};
-var parent = new Parent(&apos;father&apos;);
-parent.sayName(); // parent name: father
-var child1 = new Child(&apos;son&apos;, &apos;father&apos;);
-child1.sayName(); // child name: son
-</code></pre><h2 id="七、ES6继承"><a href="#七、ES6继承" class="headerlink" title="七、ES6继承"></a>七、ES6继承</h2><pre><code>class Parent {
-    constructor(name) {
-        this.name = name;
-    }
-
-    sayName() {
-        console.log(`parent name is ${this.name}!`);
-    }
-}
-
-class Child extends Parent {
-     constructor(name, parentName) {
-        // 调用基类的构造方法
-        super(parentName);
-        this.name = name;
-    }
-
-    sayName() {
-        console.log(`child name is ${this.name}!`);
-    }
-}
-const child = new Child(&apos;son&apos;, &apos;father&apos;);
-child.sayName(); // child name: son
-const parent = new Parent(&apos;father&apos;);
-parent.sayName(); // parent name: father
-</code></pre><p>【参考文章】<br>1、<a href="https://juejin.im/entry/58ec7c8e8d6d810058058a2a" target="_blank" rel="external">小白式 - 让你快速理解 JS 中的继承方式</a><br>2、<a href="https://segmentfault.com/a/1190000007098750#articleHeader11" target="_blank" rel="external">读书笔记–对象、实例、原型、继承</a><br>3、<a href="https://zxc0328.github.io/2015/10/22/learn-ES6-with-babel/" target="_blank" rel="external">ES6探秘-Classes</a><br>4、<a href="http://es6.ruanyifeng.com/#docs/class" target="_blank" rel="external">Class 的基本语法</a></p>
+        <h2 id="一、浏览器解析URL"><a href="#一、浏览器解析URL" class="headerlink" title="一、浏览器解析URL"></a>一、浏览器解析URL</h2><p>&emsp;&emsp;协议：eg:http 、https、 ftp<br>&emsp;&emsp;域名：eg:www.google.com.hk<br>&emsp;&emsp;端口：eg:80<br>&emsp;&emsp;…<br>&emsp;&emsp;浏览器会根据识别出的协议发送请求。</p>
+<h2 id="二、浏览器查询域名的IP地址"><a href="#二、浏览器查询域名的IP地址" class="headerlink" title="二、浏览器查询域名的IP地址"></a>二、浏览器查询域名的IP地址</h2><p>&emsp;&emsp;在发送请求前，浏览器会检查Web缓存，然后调用网络请求的方法。</p>
+<h3 id="emsp-emsp-DNS解析（负责将主机名称映射到相应的ip地址）"><a href="#emsp-emsp-DNS解析（负责将主机名称映射到相应的ip地址）" class="headerlink" title="&emsp;&emsp;DNS解析（负责将主机名称映射到相应的ip地址）"></a>&emsp;&emsp;DNS解析（负责将主机名称映射到相应的ip地址）</h3><h4 id="emsp-emsp-读取本地DNS缓存"><a href="#emsp-emsp-读取本地DNS缓存" class="headerlink" title="&emsp;&emsp;读取本地DNS缓存"></a>&emsp;&emsp;读取本地DNS缓存</h4><p>&emsp;&emsp;浏览器会在DNS缓存当中查找网址映射关系，如果有，直接返回，完成域名解析。使用本地缓存，则无DNS查询，使用持久连接也是。<br>要查看Chrome的DNS缓存，可以打开chrome://net-internals/#dns</p>
+<h4 id="emsp-emsp-读取本地hosts文件"><a href="#emsp-emsp-读取本地hosts文件" class="headerlink" title="&emsp;&emsp;读取本地hosts文件"></a>&emsp;&emsp;读取本地hosts文件</h4><p>&emsp;&emsp;如果DNS缓存没有这个域名，则在hosts文件中查找网址映射关系，如果有，直接返回，完成域名解析。</p>
+<h4 id="emsp-emsp-发送DNS解析请求"><a href="#emsp-emsp-发送DNS解析请求" class="headerlink" title="&emsp;&emsp;发送DNS解析请求"></a>&emsp;&emsp;发送DNS解析请求</h4><p>&emsp;&emsp;如果本地DNS缓存和hosts文件都没有相应的网址映射关系，则浏览器会向本地域名服务器发送DNS查询报文;<br>&emsp;&emsp;本地域名转发请求给根域名服务器，根域名服务器解析后，知道.com是顶级域名下的，就会返回com域中的NS记录（即.com域服务器的ip地址,一般来说是13个主机名和ip）;<br>&emsp;&emsp;然后向其中一台再次发起请求，com域的服务器发现是请求baidu.com这个域的，将这个域的NS记录返回;<br>&emsp;&emsp;再向baidu.com这个域的权威服务器发送请求，发现有www这台主机，就把ip返回给客户端。  </p>
+<h2 id="三、建立连接"><a href="#三、建立连接" class="headerlink" title="三、建立连接"></a>三、建立连接</h2><h3 id="emsp-emsp-1、三次握手"><a href="#emsp-emsp-1、三次握手" class="headerlink" title="&emsp;&emsp;1、三次握手"></a>&emsp;&emsp;1、三次握手</h3><p>&emsp;&emsp;在应用层和传输层之间，有一个很重要的东西–套接字（Socket），可以把它理解为传输层向外暴露的一个编程接口，它由一个四元组（源IP地址、源端口号、目标IP地址、目标端口号）组成。TCP是面向连接的，在发送数据之前，客户端需要和服务器建立连接。建立的过程如下：<br>&emsp;&emsp;<img src="/asset/img/javascript基础/ /tcp1.png"><br>&emsp;&emsp;第一次握手（SYN=1，Seq=X）：<br>&emsp;&emsp;1、客户端发送一个SYN标志位为1的包，表示建立连接<br>&emsp;&emsp;2、设置初始序列号ISN，假如为 X，保存在包头的序列号（Sequence number）字段里<br>&emsp;&emsp;第二次握手（SYN=1，Seq=Y，ACK=X+1）：<br>&emsp;&emsp;1、服务器返回确认包ACK应答，即SYN标志位和ACK标志位均为1<br>&emsp;&emsp;2、设置序列号ISN=Y,保存在报头的序列号（Sequence number)字段里<br>&emsp;&emsp;3、将确认序列号ACK设置为X+1<br>&emsp;&emsp;第三次握手（SYN=0，Seq=X+1，ACK=Y+1）：<br>&emsp;&emsp;1、客户端返回确认包ACK，ACK标志位为1,SYN标志位为0<br>&emsp;&emsp;2、设置序列号ISN=X＋１，保存在包头的序列号（Sequence number）字段里<br>&emsp;&emsp;3、将确认序列号ACK设置为Y＋１<br>&emsp;&emsp;<img src="/asset/img/javascript基础/enter后发生了什么/tcp3.png"><br>&emsp;&emsp;<img src="/asset/img/javascript基础/enter后发生了什么/tcp2.png">    </p>
+<h3 id="emsp-emsp-2、三次握手的必要性："><a href="#emsp-emsp-2、三次握手的必要性：" class="headerlink" title="&emsp;&emsp;2、三次握手的必要性："></a>&emsp;&emsp;2、三次握手的必要性：</h3><p>&emsp;&emsp;两次握手不可靠。假如客户端发出的第一个请求报文段A没有丢失，而是因为网络原因滞留了。客户端认为A丢失了，又发了一个报文B给服务器，服务器收到请求，建立连接。两端通讯后，释放连接。之后，报文A到达服务器，服务器误以为是客户端的新的连接请求，向A发出确实报文段，同意建立连接。但是客户端拒绝连接，服务器就一直等待接受数据，浪费了许多资源。</p>
+<h2 id="四、发送HTTP请求"><a href="#四、发送HTTP请求" class="headerlink" title="四、发送HTTP请求"></a>四、发送HTTP请求</h2><p>&emsp;&emsp;请求在“三次握手”的“第三次握手”就发送出去了。HTTP报文是包裹在TCP报文中发出去的，服务器收到TCP报文时，会解包提取出HTTP报文，如果HTTP报文时明文，被截取会有信息泄露危险。因此，可以在HTTP报文进入TCP报文之前，对HTTP报文进行加密。HTTP协议的本质是HTTP+SSL/TLS。<br>&emsp;&emsp;发送HTTP请求的过程就是构建HTTP请求报文并通过TCP协议发送到服务器指定端口（HTTP协议8080，https协议443）。<strong>HTTP请求报文包括三个部分：请求行，请求报头，请求正文。</strong>  </p>
+<p>&emsp;&emsp;请求行格式：Method Request-URL HTTP-Version CRLF   &emsp;&emsp;eg： get index.html HTTP/1.1<br>&emsp;&emsp;常用的方法：GET，POST，DELETE，PUT，HEAD，OPTIONS<br>&emsp;&emsp;常见的请求报头：Accept，Accept-Encoding，Accept-Languange,Connection,Cookie,User-Agent<br>&emsp;&emsp;请求正文：当使用post，put方法时，通常客户端需要向服务器传递数据，这些数据就在请求正文中。现在的Web一般采用rest风格，数据格式为json，需要设置Content-Type：application/json。 </p>
+<h3 id="emsp-emsp-get和post区别"><a href="#emsp-emsp-get和post区别" class="headerlink" title="&emsp;&emsp;get和post区别"></a>&emsp;&emsp;get和post区别</h3><p>&emsp;&emsp;<strong>从HTTP规范来看</strong>：<br>&emsp;&emsp;发送机制不同，get用于从服务器获取数据，post用于向服务器提交数据。<br>&emsp;&emsp;<strong>TCP数据包的不同</strong>  ：<br>&emsp;&emsp;get产生一个TCP数据包；post产生两个TCP数据包。即对于get请求，浏览器把http header和data一起发送给服务器，服务器响应200（返回数据）；对于post请求，浏览器先发送http header，服务器响应100，continue，浏览器发送data，服务器响应200。但是，并不是所有浏览器都会在post请求中发送两次包，Firefox就只发送一次。<br>&emsp;&emsp;<strong>从表现来看</strong>：<br>&emsp;&emsp;1、get请求的数据会附在url之后，以？号分割url和请求数据，请求数据的参数用&amp;符号链接。post则是把请求数据放在请求正文中。<br>&emsp;&emsp;2、HTTP没有对传输数据的大小进行限制，也没有对url长度进行限制。浏览器会对url长度进行限制，服务器会对get，post提交的数据进行限制，提交的数据过大，对服务器来说也是一种负担。<br>&emsp;&emsp;3、post请求的安全性相对来说比get高一些，因为get请求是可以缓存和存在于浏览器历史记录中的，post请求也并非安全，截获数据包也可以获得数据。    </p>
+<h2 id="五、服务器处理请求并返回HTTP报文"><a href="#五、服务器处理请求并返回HTTP报文" class="headerlink" title="五、服务器处理请求并返回HTTP报文"></a>五、服务器处理请求并返回HTTP报文</h2><p>&emsp;&emsp;<strong>HTTP响应报文也包括三个部分：状态码，响应报头，响应报文。</strong>  </p>
+<h3 id="emsp-emsp-状态码由3位数字组成："><a href="#emsp-emsp-状态码由3位数字组成：" class="headerlink" title="&emsp;&emsp;状态码由3位数字组成："></a>&emsp;&emsp;状态码由3位数字组成：</h3><p>&emsp;&emsp;1XX：指示信息-表示请求已接收，进一步处理<br>&emsp;&emsp;2XX：成功-表示请求已被成功接收<br>&emsp;&emsp;3XX：重定向-表示要完成请求需要进一步操作<br>&emsp;&emsp;4XX：客户端错误-请求有语法错误或请求无法实现<br>&emsp;&emsp;5XX：服务器端错误-服务器未能实现合法的请求<br>&emsp;&emsp;600：表示服务器没有返回响应头部，只返回实体内容，也算做服务器错误状态码   </p>
+<h3 id="emsp-emsp-常见状态码如下："><a href="#emsp-emsp-常见状态码如下：" class="headerlink" title="&emsp;&emsp;常见状态码如下："></a>&emsp;&emsp;常见状态码如下：</h3><p>&emsp;&emsp;200：OK 表明请求被服务器正常处理，返回信息与请求方法有关<br>&emsp;&emsp;204：No Content 表明请求被服务器正常处理，但是没有内容返回（就应该没有内容返回的状况）。浏览器向服务器发送请求后收到了204，那么浏览器页面不会发生更新。使用惯例是，在 PUT 请求中进行资源更新，但是不需要改变当前展示给用户的页面，那么返回 204 No Content。如果新创建了资源，那么返回 201 Created 。如果页面需要更新以反映更新后的资源，那么需要返回 200 。<br>&emsp;&emsp;206：Partial Content 表明客户端进行了范围请求。客户端的请求中，必须包含range字段。服务器的响应报文中，必须包含Content-Range指定范围的实体内容。<br>&emsp;&emsp;301：Moved Permanently永久性重定向。表示请求的资源已经移动到了由Location 头部指定的 URL 上，是永久性的，根据请求的不同有不同的处理方式：<br>&emsp;&emsp;&emsp;&emsp;HEAD：必须在响应头部Location字段中指明新的永久性的URI。<br>&emsp;&emsp;&emsp;&emsp;GET：除了有Location字段以外，还需要在响应体中附上永久性URI的超链接文本。<br>&emsp;&emsp;&emsp;&emsp;POST：客户端在发送POST请求，受到301响应之后，不应该自动跳转URI，应当让用户确认跳转。<br>&emsp;&emsp;302:Found临时性重定向。表示请求的资源被暂时的移动到了由Location 头部指定的 URL 上。<br>&emsp;&emsp;304：Not Modified表示无需再次传输请求的内容，可以使用缓存的内容。如在GET 或HEAD 请求中附带了头部信息： If-None-Match 或If-Modified-Since。<br>&emsp;&emsp;307：Temporary Redirect临时重定向。307 与 302 之间的唯一区别在于，当发送重定向请求的时候，307 状态码可以确保请求方法和消息主体不会发生变化。当响应状态码为 302 的时候，一些旧有的用户代理会错误地将请求方法转换为 GET。对于 GET 请求来说，两种情况没有区别。<br>&emsp;&emsp;400：Bad Request表示该请求报文中存在语法错误，导致服务器无法理解该请求。客户端需要修改请求的内容后再次发送请求。<br>&emsp;&emsp;401： Unauthorized该状态码表示发送的请求需要有通过HTTP认证(Basic认证，Digest认证)的认证信息。返回含有401的响应，必须在头部包含WWW-Authenticate以指明服务器需要哪种方式的认证。当客户端再次请求该资源的时候，需要在请求头中的Authorization包含认证信息。<br>&emsp;&emsp;403：Forbidden 代表客户端错误，指的是服务器端有能力处理该请求，但是拒绝授权访问。如未获得文件系统的访问权限，访问权限出现某些问题，从未授权的发送源IP地址试图访问等情况都可能发生403响应。<br>&emsp;&emsp;404： Not Found代表客户端错误，指的是服务器端无法找到所请求的资源。<br>&emsp;&emsp;500 Internal Server Error该状态码表明服务器端在执行请求时发生了错误。也有可能是Web应用存在的BUG或某些临时的故障。<br>&emsp;&emsp;503： Service Unavailable该状态码表明服务器暂时处于超负载或正在进行停机维护，现在无法处理请求。<br>&emsp;&emsp;<img src="/asset/img/javascript基础/enter后发生了什么/tcp4.png">   </p>
+<h2 id="六、浏览器接收并处理响应"><a href="#六、浏览器接收并处理响应" class="headerlink" title="六、浏览器接收并处理响应"></a>六、浏览器接收并处理响应</h2><p>&emsp;&emsp;<img src="/asset/img/javascript基础/enter后发生了什么/tcp5.png"><br>&emsp;&emsp;1、开始解析 html<br>&emsp;&emsp;2、请求 css 和 js 资源<br>&emsp;&emsp;3、解析 css，构造 CSSOM<br>&emsp;&emsp;4、等到 CSSOM 构建完成，执行 js，停止 DOM 构建（CSSOM 构建阻塞 js 执行，JS阻塞页面加载）<br>&emsp;&emsp;5、继续构建 DOM<br>&emsp;&emsp;6、合并 DOM 和 CSSOM生成 Render Tree（渲染树）<br>&emsp;&emsp;7、计算样式，确定元素位置，长宽，生成盒模型，进行布局<br>&emsp;&emsp;8、绘制元素的样式，如颜色，阴影   </p>
+<h2 id="七、关闭TCP连接或者继续保持连接"><a href="#七、关闭TCP连接或者继续保持连接" class="headerlink" title="七、关闭TCP连接或者继续保持连接"></a>七、关闭TCP连接或者继续保持连接</h2><p>&emsp;&emsp;通过四次挥手关闭连接：<br>&emsp;&emsp;<img src="/asset/img/javascript基础/enter后发生了什么/tcp6.png"><br>&emsp;&emsp;为什么需要进行四次挥手？<br>&emsp;&emsp;第一次挥手是浏览器发完数据后，发送FIN请求断开连接。第二次挥手是服务器发送ACK表示同意，如果在这一次服务器也发送FIN请求断开连接似乎也没有不妥，但考虑到服务器可能还有数据要发送，所以服务器发送FIN应该放在第三次挥手中。这样浏览器需要返回ACK表示同意，也就是第四次挥手。</p>
+<p>【参考文章】<br>1、<a href="http://achuan.me/2017/03/01/20170301how-browser-works/" target="_blank" rel="external">在地址栏敲下回车之后都发生了什么？——浏览器工作原理浅析</a><br>2、<a href="https://yq.aliyun.com/articles/20667" target="_blank" rel="external">当你在浏览器地址栏输入一个URL后回车，将会发生的事情？</a><br>3、<a href="https://segmentfault.com/a/1190000006879700" target="_blank" rel="external">从输入URL到页面加载发生了什么</a><br>4、<a href="http://www.jianshu.com/p/71cf7f69eca8" target="_blank" rel="external">从输入 URL 到页面加载完成的过程中都发生了什么事情？</a><br>5、<a href="https://www.zhihu.com/question/34873227" target="_blank" rel="external">在浏览器地址栏输入一个URL后回车，背后会进行哪些技术步骤？</a><br>6、<a href="https://www.zhihu.com/question/23042131" target="_blank" rel="external">DNS解析的过程是什么，求详细的？–知乎</a><br>7、<a href="http://blog.chinaunix.net/uid-28216282-id-3757849.html" target="_blank" rel="external">DNS解析过程详解</a><br>8、<a href="http://web.jobbole.com/86298/" target="_blank" rel="external">GET和POST有什么区别？及为什么网上多数答案都是错的</a><br>9、<a href="http://www.cnblogs.com/hyddd/archive/2009/03/31/1426026.html" target="_blank" rel="external">浅谈HTTP中Get与Post的区别</a><br>10、<a href="https://segmentfault.com/a/1190000008993003" target="_blank" rel="external">get和post的区别</a><br>11、<a href="http://blog.csdn.net/ahafg/article/details/51039584" target="_blank" rel="external">Wireshark-TCP协议分析（包结构以及连接的建立和释放）</a><br>12、<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status/100" target="_blank" rel="external">HTTP状态码</a><br>13、<a href="https://segmentfault.com/a/1190000005338367" target="_blank" rel="external">「理解HTTP」之常见的状态码</a><br>14、<a href="http://developer.51cto.com/art/201612/524407.htm" target="_blank" rel="external">浅析渲染引擎与前端优化</a></p>
 
       
 
@@ -401,7 +289,7 @@ parent.sayName(); // parent name: father
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/20/js继承/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/25/url-enter后发生了什么/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -415,18 +303,9 @@ parent.sayName(); // parent name: father
   
 <nav id="article-nav">
   
-    <a href="/2017/08/21/es6/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          es6
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/08/19/js创建对象/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">js创建对象</div>
+    <a href="/2017/08/23/html5新特性/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">html5新特性</div>
       <i class="icon-circle-right"></i>
     </a>
   

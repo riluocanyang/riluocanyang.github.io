@@ -6,18 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>js继承 | Hexo</title>
+  <title>懒加载 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="&amp;emsp;&amp;emsp;较为常用的js继承有原型链继承、借用构造函数、组合式继承、继承组合式继承以及ES6继承。">
+  <meta name="description" content="&amp;emsp;&amp;emsp;懒加载，是网页性能优化的一种方式，不是将所有的图片显示，而是优先显示可视区图片。当需要显示更多图片的时候再请求资源，避免打开网页时加载过多资源。
+懒加载原理不给img标签设置src属性，而是添加一个data-src属性，将图片的URL放入其中。
+实现比如：lazyload.js.下面解读lazyload.js库。
+HTML结构 &amp;lt;div id=&amp;quot;contai">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js继承">
-<meta property="og:url" content="http://yoursite.com/2017/08/20/js继承/index.html">
+<meta property="og:title" content="懒加载">
+<meta property="og:url" content="http://yoursite.com/2017/08/22/懒加载/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;较为常用的js继承有原型链继承、借用构造函数、组合式继承、继承组合式继承以及ES6继承。">
-<meta property="og:updated_time" content="2017-08-21T07:44:18.603Z">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;懒加载，是网页性能优化的一种方式，不是将所有的图片显示，而是优先显示可视区图片。当需要显示更多图片的时候再请求资源，避免打开网页时加载过多资源。
+懒加载原理不给img标签设置src属性，而是添加一个data-src属性，将图片的URL放入其中。
+实现比如：lazyload.js.下面解读lazyload.js库。
+HTML结构 &amp;lt;div id=&amp;quot;contai">
+<meta property="og:updated_time" content="2017-08-22T10:11:06.800Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js继承">
-<meta name="twitter:description" content="&amp;emsp;&amp;emsp;较为常用的js继承有原型链继承、借用构造函数、组合式继承、继承组合式继承以及ES6继承。">
+<meta name="twitter:title" content="懒加载">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;懒加载，是网页性能优化的一种方式，不是将所有的图片显示，而是优先显示可视区图片。当需要显示更多图片的时候再请求资源，避免打开网页时加载过多资源。
+懒加载原理不给img标签设置src属性，而是添加一个data-src属性，将图片的URL放入其中。
+实现比如：lazyload.js.下面解读lazyload.js库。
+HTML结构 &amp;lt;div id=&amp;quot;contai">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -153,165 +162,44 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-js继承" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-懒加载" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      js继承
+      懒加载
     </h1>
   
 
         
-        <a href="/2017/08/20/js继承/" class="archive-article-date">
-  	<time datetime="2017-08-20T05:08:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-20</time>
+        <a href="/2017/08/22/懒加载/" class="archive-article-date">
+  	<time datetime="2017-08-22T02:48:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>&emsp;&emsp;较为常用的js继承有原型链继承、借用构造函数、组合式继承、继承组合式继承以及ES6继承。<br><a id="more"></a></p>
-<h2 id="一、原型链继承"><a href="#一、原型链继承" class="headerlink" title="一、原型链继承"></a>一、原型链继承</h2><pre><code>function Parent(name){    
-       this.name = name;   
-}
-Parent.prototype.sayName = function() {
-    console.log(&apos;parent name is &apos; + this.name + &apos;!&apos;);
-};
-
-function Child(name) {
-    this.name = name;
-}
-// 使用原型链继承Parent构造函数
-Child.prototype = new Parent(&apos;father&apos;);
-var child1 = new Child();
-</code></pre><p>&emsp;&emsp;缺点：1、子类型无法给超类传递参数；<br>&emsp;&emsp;&emsp;&emsp;&emsp;2、引用类型的属性被所有实例共享。</p>
-<h2 id="二、借用构造函数"><a href="#二、借用构造函数" class="headerlink" title="二、借用构造函数"></a>二、借用构造函数</h2><pre><code>function Parent(name) {
-    this.name = name;
-    this.friends = [&apos;a&apos;,&apos;b&apos;];
-}
-
-function Child(name) {
-    // 通过call,apply 改变对象的this指向来继承
-    Parent.call(this, name);
-    // Parent.apply(this, arguments);
-}
-
-var child = new Child(&apos;son&apos;);
-child.friends.push(&apos;c&apos;);
-</code></pre><p>&emsp;&emsp;优点：1、避免了引用类型的属性被所有实例共享<br>&emsp;&emsp;&emsp;&emsp;&emsp;2、可以在child中向Parent传参<br>&emsp;&emsp;缺点：没有原型，方法都在构造函数中定义，每次创建实例都会创建一遍方法。</p>
-<h2 id="三、组合继承（原型链继承-借用构造函数继承）"><a href="#三、组合继承（原型链继承-借用构造函数继承）" class="headerlink" title="三、组合继承（原型链继承+借用构造函数继承）"></a>三、组合继承（原型链继承+借用构造函数继承）</h2><pre><code>/*
-  使用原型链实现对原型属性和方法的继承
-  使用借用构造函数实现对实例属性的继承
-*/
-function Parent(name) {
-    this.name = name;
-}
-Parent.prototype.sayName = function() {
-    console.log(&apos;parent name is &apos; + this.name + &apos;!&apos;);
-};
-
-function Child(name) {
-    // 通过call,apply 改变对象的this指向来继承
-    Parent.call(this, name);  // 第二次调用 
-    // Parent.apply(this, arguments);
-}
-Child.prototype = new Parent(&apos;father&apos;);  // 第一次调用
-Child.prototype.constructor = Child;
-Child.prototype.sayName = function() {
-    console.log(&apos;child name is &apos; + this.name + &apos;!&apos;);
-};
-var child = new Child(&apos;son&apos;);
-</code></pre><p>&emsp;&emsp;优点：融合了原型链和借用构造函数的优点，是常用的继承模式。<br>&emsp;&emsp;缺点：超类构造函数会被调用2次：一次是在创建子类型原型的时候，另一次是在子类型构造函数的内部。<br>&emsp;&emsp;<strong>注意</strong>：Chid.prototype.getName要放在Child.prototype = new Parent()之后。</p>
-<h2 id="四、原型式继承"><a href="#四、原型式继承" class="headerlink" title="四、原型式继承"></a>四、原型式继承</h2><pre><code>/* 
-    基于一个对象上，将这个对象作为原型。
-*/
-var ob = { name: &apos;son&apos;, friends: [&apos;a&apos;, &apos;b&apos;] };
-
-function object(obj) {
-    /**
-     * 创建一个构造函数F
-     */
-    function F() {
-        // 空构造函数F
-    }
-    F.prototype = obj;
-    return new F();
-}
-
-var ob1 = object(ob);
-console.log(ob1.name);  //son
-ob1.name = &apos;ob1&apos;;
-ob1.friends.push(&apos;c&apos;);
-console.log(ob1.name); // ob1
-console.log(ob1.friends); //[&apos;a&apos;,&apos;b&apos;,&apos;c&apos;]
-</code></pre><p>&emsp;&emsp;<strong>注意</strong>：在未给ob1对象添加name属性时，ob1.name实际上引用的ob.name。之后给ob1对象添加了name属性，但并未修改原型ob上的name。</p>
-<h2 id="五、寄生式继承"><a href="#五、寄生式继承" class="headerlink" title="五、寄生式继承"></a>五、寄生式继承</h2><pre><code>/* 在函数内部以某种方式增强对象 */
-var ob = { name: &apos;son&apos;, friends: [&apos;a&apos;, &apos;b&apos;] };
-
-// 原型式继承再ECMAScript5 有了一新的规范写法，Object.create(ob) 效果是一样的
-
-function createOb(o) {
-    var newob = Object.create(o); // 创建对象
-    newob.sayname = function() { // 增强对象
-        console.log(this.name);
-    };
-    return newob; // 指定对象
-}
-var ob1 = createOb(ob);
-ob1.sayname(); // son
-</code></pre><h2 id="六、寄生组合式继承"><a href="#六、寄生组合式继承" class="headerlink" title="六、寄生组合式继承"></a>六、寄生组合式继承</h2><pre><code>function Parent(name) {
-    this.name = name;
-}
-Parent.prototype.sayName = function() {
-    console.log(&apos;parent name is &apos; + this.name + &apos;!&apos;);
-};
-
-function Child(name, parentName) {
-    Parent.call(this, parentName);
-    this.name = name;
-}
-
-// 实现继承
-Child.prototype = Object.create(Parent.prototype); 
-Child.prototype.construtor = Child;
-
-Child.prototype.sayName = function() {
-    console.log(&apos;child name is &apos; + this.name + &apos;!&apos;);
-};
-var parent = new Parent(&apos;father&apos;);
-parent.sayName(); // parent name: father
-var child1 = new Child(&apos;son&apos;, &apos;father&apos;);
-child1.sayName(); // child name: son
-</code></pre><h2 id="七、ES6继承"><a href="#七、ES6继承" class="headerlink" title="七、ES6继承"></a>七、ES6继承</h2><pre><code>class Parent {
-    constructor(name) {
-        this.name = name;
-    }
-
-    sayName() {
-        console.log(`parent name is ${this.name}!`);
-    }
-}
-
-class Child extends Parent {
-     constructor(name, parentName) {
-        // 调用基类的构造方法
-        super(parentName);
-        this.name = name;
-    }
-
-    sayName() {
-        console.log(`child name is ${this.name}!`);
-    }
-}
-const child = new Child(&apos;son&apos;, &apos;father&apos;);
-child.sayName(); // child name: son
-const parent = new Parent(&apos;father&apos;);
-parent.sayName(); // parent name: father
-</code></pre><p>【参考文章】<br>1、<a href="https://juejin.im/entry/58ec7c8e8d6d810058058a2a" target="_blank" rel="external">小白式 - 让你快速理解 JS 中的继承方式</a><br>2、<a href="https://segmentfault.com/a/1190000007098750#articleHeader11" target="_blank" rel="external">读书笔记–对象、实例、原型、继承</a><br>3、<a href="https://zxc0328.github.io/2015/10/22/learn-ES6-with-babel/" target="_blank" rel="external">ES6探秘-Classes</a><br>4、<a href="http://es6.ruanyifeng.com/#docs/class" target="_blank" rel="external">Class 的基本语法</a></p>
-
+        <p>&emsp;&emsp;懒加载，是网页性能优化的一种方式，不是将所有的图片显示，而是优先显示可视区图片。当需要显示更多图片的时候再请求资源，避免打开网页时加载过多资源。</p>
+<h2 id="懒加载原理"><a href="#懒加载原理" class="headerlink" title="懒加载原理"></a>懒加载原理</h2><p>不给img标签设置src属性，而是添加一个data-src属性，将图片的URL放入其中。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>比如：<a href="https://github.com/zhoukekestar/modules/blob/master/src/lazyload/lazyload.js" target="_blank" rel="external">lazyload.js</a>.<br>下面解读lazyload.js库。</p>
+<h3 id="HTML结构"><a href="#HTML结构" class="headerlink" title="HTML结构"></a>HTML结构</h3><pre><code> &lt;div id=&quot;container&quot;&gt;
+    &lt;div&gt;
+        &lt;img class=&quot;img1&quot; alt=&quot;loading&quot; data-src=&quot;img/image1.jpg&quot;&gt;           
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;img class=&quot;img2&quot; alt=&quot;loading&quot; data-src=&quot;img/image2.jpg&quot;&gt;
+    &lt;/div&gt; 
+    &lt;div&gt;
+        &lt;img class=&quot;img3&quot; alt=&quot;loading&quot; data-src=&quot;img/image1.jpg&quot;&gt;           
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;img class=&quot;img4&quot; alt=&quot;loading&quot; data-src=&quot;img/image2.jpg&quot;&gt;
+    &lt;/div&gt; 
+&lt;/div&gt;   
+</code></pre>
       
 
       
@@ -346,6 +234,14 @@ parent.sayName(); // parent name: father
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">网页性能优化</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">lazyload.js</a>
         		</li>
       		
 		</ul>
@@ -401,7 +297,7 @@ parent.sayName(); // parent name: father
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/20/js继承/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/08/22/懒加载/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -415,18 +311,18 @@ parent.sayName(); // parent name: father
   
 <nav id="article-nav">
   
-    <a href="/2017/08/21/es6/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/08/23/html5新特性/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          es6
+          html5新特性
         
       </div>
     </a>
   
   
-    <a href="/2017/08/19/js创建对象/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">js创建对象</div>
+    <a href="/2017/08/21/es6/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">es6</div>
       <i class="icon-circle-right"></i>
     </a>
   

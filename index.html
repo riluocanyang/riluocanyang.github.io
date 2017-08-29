@@ -151,6 +151,226 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-url-enter后发生了什么" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/25/url-enter后发生了什么/">url,enter后发生了什么</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/25/url-enter后发生了什么/" class="archive-article-date">
+  	<time datetime="2017-08-25T06:20:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、浏览器解析URL"><a href="#一、浏览器解析URL" class="headerlink" title="一、浏览器解析URL"></a>一、浏览器解析URL</h2><p>&emsp;&emsp;协议：eg:http 、https、 ftp<br>&emsp;&emsp;域名：eg:www.google.com.hk<br>&emsp;&emsp;端口：eg:80<br>&emsp;&emsp;…<br>&emsp;&emsp;浏览器会根据识别出的协议发送请求。</p>
+<h2 id="二、浏览器查询域名的IP地址"><a href="#二、浏览器查询域名的IP地址" class="headerlink" title="二、浏览器查询域名的IP地址"></a>二、浏览器查询域名的IP地址</h2><p>&emsp;&emsp;在发送请求前，浏览器会检查Web缓存，然后调用网络请求的方法。</p>
+<h3 id="emsp-emsp-DNS解析（负责将主机名称映射到相应的ip地址）"><a href="#emsp-emsp-DNS解析（负责将主机名称映射到相应的ip地址）" class="headerlink" title="&emsp;&emsp;DNS解析（负责将主机名称映射到相应的ip地址）"></a>&emsp;&emsp;DNS解析（负责将主机名称映射到相应的ip地址）</h3><h4 id="emsp-emsp-读取本地DNS缓存"><a href="#emsp-emsp-读取本地DNS缓存" class="headerlink" title="&emsp;&emsp;读取本地DNS缓存"></a>&emsp;&emsp;读取本地DNS缓存</h4><p>&emsp;&emsp;浏览器会在DNS缓存当中查找网址映射关系，如果有，直接返回，完成域名解析。使用本地缓存，则无DNS查询，使用持久连接也是。<br>要查看Chrome的DNS缓存，可以打开chrome://net-internals/#dns</p>
+<h4 id="emsp-emsp-读取本地hosts文件"><a href="#emsp-emsp-读取本地hosts文件" class="headerlink" title="&emsp;&emsp;读取本地hosts文件"></a>&emsp;&emsp;读取本地hosts文件</h4><p>&emsp;&emsp;如果DNS缓存没有这个域名，则在hosts文件中查找网址映射关系，如果有，直接返回，完成域名解析。</p>
+<h4 id="emsp-emsp-发送DNS解析请求"><a href="#emsp-emsp-发送DNS解析请求" class="headerlink" title="&emsp;&emsp;发送DNS解析请求"></a>&emsp;&emsp;发送DNS解析请求</h4><p>&emsp;&emsp;如果本地DNS缓存和hosts文件都没有相应的网址映射关系，则浏览器会向本地域名服务器发送DNS查询报文;<br>&emsp;&emsp;本地域名转发请求给根域名服务器，根域名服务器解析后，知道.com是顶级域名下的，就会返回com域中的NS记录（即.com域服务器的ip地址,一般来说是13个主机名和ip）;<br>&emsp;&emsp;然后向其中一台再次发起请求，com域的服务器发现是请求baidu.com这个域的，将这个域的NS记录返回;<br>&emsp;&emsp;再向baidu.com这个域的权威服务器发送请求，发现有www这台主机，就把ip返回给客户端。  </p>
+<h2 id="三、建立连接"><a href="#三、建立连接" class="headerlink" title="三、建立连接"></a>三、建立连接</h2><h3 id="emsp-emsp-1、三次握手"><a href="#emsp-emsp-1、三次握手" class="headerlink" title="&emsp;&emsp;1、三次握手"></a>&emsp;&emsp;1、三次握手</h3><p>&emsp;&emsp;在应用层和传输层之间，有一个很重要的东西–套接字（Socket），可以把它理解为传输层向外暴露的一个编程接口，它由一个四元组（源IP地址、源端口号、目标IP地址、目标端口号）组成。TCP是面向连接的，在发送数据之前，客户端需要和服务器建立连接。建立的过程如下：<br>&emsp;&emsp;<img src="/asset/img/javascript基础/ /tcp1.png"><br>&emsp;&emsp;第一次握手（SYN=1，Seq=X）：<br>&emsp;&emsp;1、客户端发送一个SYN标志位为1的包，表示建立连接<br>&emsp;&emsp;2、设置初始序列号ISN，假如为 X，保存在包头的序列号（Sequence number）字段里<br>&emsp;&emsp;第二次握手（SYN=1，Seq=Y，ACK=X+1）：<br>&emsp;&emsp;1、服务器返回确认包ACK应答，即SYN标志位和ACK标志位均为1<br>&emsp;&emsp;2、设置序列号ISN=Y,保存在报头的序列号（Sequence number)字段里<br>&emsp;&emsp;3、将确认序列号ACK设置为X+1<br>&emsp;&emsp;第三次握手（SYN=0，Seq=X+1，ACK=Y+1）：<br>&emsp;&emsp;1、客户端返回确认包ACK，ACK标志位为1,SYN标志位为0<br>&emsp;&emsp;2、设置序列号ISN=X＋１，保存在包头的序列号（Sequence number）字段里<br>&emsp;&emsp;3、将确认序列号ACK设置为Y＋１<br>&emsp;&emsp;<img src="/asset/img/javascript基础/enter后发生了什么/tcp3.png"><br>&emsp;&emsp;<img src="/asset/img/javascript基础/enter后发生了什么/tcp2.png">    </p>
+<h3 id="emsp-emsp-2、三次握手的必要性："><a href="#emsp-emsp-2、三次握手的必要性：" class="headerlink" title="&emsp;&emsp;2、三次握手的必要性："></a>&emsp;&emsp;2、三次握手的必要性：</h3><p>&emsp;&emsp;两次握手不可靠。假如客户端发出的第一个请求报文段A没有丢失，而是因为网络原因滞留了。客户端认为A丢失了，又发了一个报文B给服务器，服务器收到请求，建立连接。两端通讯后，释放连接。之后，报文A到达服务器，服务器误以为是客户端的新的连接请求，向A发出确实报文段，同意建立连接。但是客户端拒绝连接，服务器就一直等待接受数据，浪费了许多资源。</p>
+<h2 id="四、发送HTTP请求"><a href="#四、发送HTTP请求" class="headerlink" title="四、发送HTTP请求"></a>四、发送HTTP请求</h2><p>&emsp;&emsp;请求在“三次握手”的“第三次握手”就发送出去了。HTTP报文是包裹在TCP报文中发出去的，服务器收到TCP报文时，会解包提取出HTTP报文，如果HTTP报文时明文，被截取会有信息泄露危险。因此，可以在HTTP报文进入TCP报文之前，对HTTP报文进行加密。HTTP协议的本质是HTTP+SSL/TLS。<br>&emsp;&emsp;发送HTTP请求的过程就是构建HTTP请求报文并通过TCP协议发送到服务器指定端口（HTTP协议8080，https协议443）。<strong>HTTP请求报文包括三个部分：请求行，请求报头，请求正文。</strong>  </p>
+<p>&emsp;&emsp;请求行格式：Method Request-URL HTTP-Version CRLF   &emsp;&emsp;eg： get index.html HTTP/1.1<br>&emsp;&emsp;常用的方法：GET，POST，DELETE，PUT，HEAD，OPTIONS<br>&emsp;&emsp;常见的请求报头：Accept，Accept-Encoding，Accept-Languange,Connection,Cookie,User-Agent<br>&emsp;&emsp;请求正文：当使用post，put方法时，通常客户端需要向服务器传递数据，这些数据就在请求正文中。现在的Web一般采用rest风格，数据格式为json，需要设置Content-Type：application/json。 </p>
+<h3 id="emsp-emsp-get和post区别"><a href="#emsp-emsp-get和post区别" class="headerlink" title="&emsp;&emsp;get和post区别"></a>&emsp;&emsp;get和post区别</h3><p>&emsp;&emsp;<strong>从HTTP规范来看</strong>：<br>&emsp;&emsp;发送机制不同，get用于从服务器获取数据，post用于向服务器提交数据。<br>&emsp;&emsp;<strong>TCP数据包的不同</strong>  ：<br>&emsp;&emsp;get产生一个TCP数据包；post产生两个TCP数据包。即对于get请求，浏览器把http header和data一起发送给服务器，服务器响应200（返回数据）；对于post请求，浏览器先发送http header，服务器响应100，continue，浏览器发送data，服务器响应200。但是，并不是所有浏览器都会在post请求中发送两次包，Firefox就只发送一次。<br>&emsp;&emsp;<strong>从表现来看</strong>：<br>&emsp;&emsp;1、get请求的数据会附在url之后，以？号分割url和请求数据，请求数据的参数用&amp;符号链接。post则是把请求数据放在请求正文中。<br>&emsp;&emsp;2、HTTP没有对传输数据的大小进行限制，也没有对url长度进行限制。浏览器会对url长度进行限制，服务器会对get，post提交的数据进行限制，提交的数据过大，对服务器来说也是一种负担。<br>&emsp;&emsp;3、post请求的安全性相对来说比get高一些，因为get请求是可以缓存和存在于浏览器历史记录中的，post请求也并非安全，截获数据包也可以获得数据。    </p>
+<h2 id="五、服务器处理请求并返回HTTP报文"><a href="#五、服务器处理请求并返回HTTP报文" class="headerlink" title="五、服务器处理请求并返回HTTP报文"></a>五、服务器处理请求并返回HTTP报文</h2><p>&emsp;&emsp;<strong>HTTP响应报文也包括三个部分：状态码，响应报头，响应报文。</strong>  </p>
+<h3 id="emsp-emsp-状态码由3位数字组成："><a href="#emsp-emsp-状态码由3位数字组成：" class="headerlink" title="&emsp;&emsp;状态码由3位数字组成："></a>&emsp;&emsp;状态码由3位数字组成：</h3><p>&emsp;&emsp;1XX：指示信息-表示请求已接收，进一步处理<br>&emsp;&emsp;2XX：成功-表示请求已被成功接收<br>&emsp;&emsp;3XX：重定向-表示要完成请求需要进一步操作<br>&emsp;&emsp;4XX：客户端错误-请求有语法错误或请求无法实现<br>&emsp;&emsp;5XX：服务器端错误-服务器未能实现合法的请求<br>&emsp;&emsp;600：表示服务器没有返回响应头部，只返回实体内容，也算做服务器错误状态码   </p>
+<h3 id="emsp-emsp-常见状态码如下："><a href="#emsp-emsp-常见状态码如下：" class="headerlink" title="&emsp;&emsp;常见状态码如下："></a>&emsp;&emsp;常见状态码如下：</h3><p>&emsp;&emsp;200：OK 表明请求被服务器正常处理，返回信息与请求方法有关<br>&emsp;&emsp;204：No Content 表明请求被服务器正常处理，但是没有内容返回（就应该没有内容返回的状况）。浏览器向服务器发送请求后收到了204，那么浏览器页面不会发生更新。使用惯例是，在 PUT 请求中进行资源更新，但是不需要改变当前展示给用户的页面，那么返回 204 No Content。如果新创建了资源，那么返回 201 Created 。如果页面需要更新以反映更新后的资源，那么需要返回 200 。<br>&emsp;&emsp;206：Partial Content 表明客户端进行了范围请求。客户端的请求中，必须包含range字段。服务器的响应报文中，必须包含Content-Range指定范围的实体内容。<br>&emsp;&emsp;301：Moved Permanently永久性重定向。表示请求的资源已经移动到了由Location 头部指定的 URL 上，是永久性的，根据请求的不同有不同的处理方式：<br>&emsp;&emsp;&emsp;&emsp;HEAD：必须在响应头部Location字段中指明新的永久性的URI。<br>&emsp;&emsp;&emsp;&emsp;GET：除了有Location字段以外，还需要在响应体中附上永久性URI的超链接文本。<br>&emsp;&emsp;&emsp;&emsp;POST：客户端在发送POST请求，受到301响应之后，不应该自动跳转URI，应当让用户确认跳转。<br>&emsp;&emsp;302:Found临时性重定向。表示请求的资源被暂时的移动到了由Location 头部指定的 URL 上。<br>&emsp;&emsp;304：Not Modified表示无需再次传输请求的内容，可以使用缓存的内容。如在GET 或HEAD 请求中附带了头部信息： If-None-Match 或If-Modified-Since。<br>&emsp;&emsp;307：Temporary Redirect临时重定向。307 与 302 之间的唯一区别在于，当发送重定向请求的时候，307 状态码可以确保请求方法和消息主体不会发生变化。当响应状态码为 302 的时候，一些旧有的用户代理会错误地将请求方法转换为 GET。对于 GET 请求来说，两种情况没有区别。<br>&emsp;&emsp;400：Bad Request表示该请求报文中存在语法错误，导致服务器无法理解该请求。客户端需要修改请求的内容后再次发送请求。<br>&emsp;&emsp;401： Unauthorized该状态码表示发送的请求需要有通过HTTP认证(Basic认证，Digest认证)的认证信息。返回含有401的响应，必须在头部包含WWW-Authenticate以指明服务器需要哪种方式的认证。当客户端再次请求该资源的时候，需要在请求头中的Authorization包含认证信息。<br>&emsp;&emsp;403：Forbidden 代表客户端错误，指的是服务器端有能力处理该请求，但是拒绝授权访问。如未获得文件系统的访问权限，访问权限出现某些问题，从未授权的发送源IP地址试图访问等情况都可能发生403响应。<br>&emsp;&emsp;404： Not Found代表客户端错误，指的是服务器端无法找到所请求的资源。<br>&emsp;&emsp;500 Internal Server Error该状态码表明服务器端在执行请求时发生了错误。也有可能是Web应用存在的BUG或某些临时的故障。<br>&emsp;&emsp;503： Service Unavailable该状态码表明服务器暂时处于超负载或正在进行停机维护，现在无法处理请求。<br>&emsp;&emsp;<img src="/asset/img/javascript基础/enter后发生了什么/tcp4.png">   </p>
+<h2 id="六、浏览器接收并处理响应"><a href="#六、浏览器接收并处理响应" class="headerlink" title="六、浏览器接收并处理响应"></a>六、浏览器接收并处理响应</h2><p>&emsp;&emsp;<img src="/asset/img/javascript基础/enter后发生了什么/tcp5.png"><br>&emsp;&emsp;1、开始解析 html<br>&emsp;&emsp;2、请求 css 和 js 资源<br>&emsp;&emsp;3、解析 css，构造 CSSOM<br>&emsp;&emsp;4、等到 CSSOM 构建完成，执行 js，停止 DOM 构建（CSSOM 构建阻塞 js 执行，JS阻塞页面加载）<br>&emsp;&emsp;5、继续构建 DOM<br>&emsp;&emsp;6、合并 DOM 和 CSSOM生成 Render Tree（渲染树）<br>&emsp;&emsp;7、计算样式，确定元素位置，长宽，生成盒模型，进行布局<br>&emsp;&emsp;8、绘制元素的样式，如颜色，阴影   </p>
+<h2 id="七、关闭TCP连接或者继续保持连接"><a href="#七、关闭TCP连接或者继续保持连接" class="headerlink" title="七、关闭TCP连接或者继续保持连接"></a>七、关闭TCP连接或者继续保持连接</h2><p>&emsp;&emsp;通过四次挥手关闭连接：<br>&emsp;&emsp;<img src="/asset/img/javascript基础/enter后发生了什么/tcp6.png"><br>&emsp;&emsp;为什么需要进行四次挥手？<br>&emsp;&emsp;第一次挥手是浏览器发完数据后，发送FIN请求断开连接。第二次挥手是服务器发送ACK表示同意，如果在这一次服务器也发送FIN请求断开连接似乎也没有不妥，但考虑到服务器可能还有数据要发送，所以服务器发送FIN应该放在第三次挥手中。这样浏览器需要返回ACK表示同意，也就是第四次挥手。</p>
+<p>【参考文章】<br>1、<a href="http://achuan.me/2017/03/01/20170301how-browser-works/" target="_blank" rel="external">在地址栏敲下回车之后都发生了什么？——浏览器工作原理浅析</a><br>2、<a href="https://yq.aliyun.com/articles/20667" target="_blank" rel="external">当你在浏览器地址栏输入一个URL后回车，将会发生的事情？</a><br>3、<a href="https://segmentfault.com/a/1190000006879700" target="_blank" rel="external">从输入URL到页面加载发生了什么</a><br>4、<a href="http://www.jianshu.com/p/71cf7f69eca8" target="_blank" rel="external">从输入 URL 到页面加载完成的过程中都发生了什么事情？</a><br>5、<a href="https://www.zhihu.com/question/34873227" target="_blank" rel="external">在浏览器地址栏输入一个URL后回车，背后会进行哪些技术步骤？</a><br>6、<a href="https://www.zhihu.com/question/23042131" target="_blank" rel="external">DNS解析的过程是什么，求详细的？–知乎</a><br>7、<a href="http://blog.chinaunix.net/uid-28216282-id-3757849.html" target="_blank" rel="external">DNS解析过程详解</a><br>8、<a href="http://web.jobbole.com/86298/" target="_blank" rel="external">GET和POST有什么区别？及为什么网上多数答案都是错的</a><br>9、<a href="http://www.cnblogs.com/hyddd/archive/2009/03/31/1426026.html" target="_blank" rel="external">浅谈HTTP中Get与Post的区别</a><br>10、<a href="https://segmentfault.com/a/1190000008993003" target="_blank" rel="external">get和post的区别</a><br>11、<a href="http://blog.csdn.net/ahafg/article/details/51039584" target="_blank" rel="external">Wireshark-TCP协议分析（包结构以及连接的建立和释放）</a><br>12、<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status/100" target="_blank" rel="external">HTTP状态码</a><br>13、<a href="https://segmentfault.com/a/1190000005338367" target="_blank" rel="external">「理解HTTP」之常见的状态码</a><br>14、<a href="http://developer.51cto.com/art/201612/524407.htm" target="_blank" rel="external">浅析渲染引擎与前端优化</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/25/url-enter后发生了什么/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-html5新特性" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/23/html5新特性/">html5新特性</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/23/html5新特性/" class="archive-article-date">
+  	<time datetime="2017-08-23T06:34:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="与HTML4的区别："><a href="#与HTML4的区别：" class="headerlink" title="与HTML4的区别："></a>与HTML4的区别：</h3><p>文档类型声明：&lt;!DOCTYPE HTML&gt;   </p>
+<h3 id="新增标签-元素："><a href="#新增标签-元素：" class="headerlink" title="新增标签/元素："></a>新增标签/元素：</h3><p>&lt; header &gt; &lt; nav &gt; &lt; section &gt; &lt; article &gt; &lt; sidebar &gt; &lt; footer &gt;<br>&lt; video &gt; &lt; audio &gt;<br>&lt; mark &gt;<br>&lt; datalist &gt;   </p>
+<h3 id="input元素的新类型："><a href="#input元素的新类型：" class="headerlink" title="input元素的新类型："></a>input元素的新类型：</h3><p>search、date 、email 、url、number、color、tel   </p>
+<h3 id="新的属性："><a href="#新的属性：" class="headerlink" title="新的属性："></a>新的属性：</h3><p>ping(用于a)、charset(用于meta)、async(用于script)   </p>
+<h3 id="新的全局属性："><a href="#新的全局属性：" class="headerlink" title="新的全局属性："></a>新的全局属性：</h3><p>contenteditable、draggable、hidden、data-*(自定义数据)   </p>
+<h3 id="移除元素："><a href="#移除元素：" class="headerlink" title="移除元素："></a>移除元素：</h3><p>&lt; font &gt;、&lt; center &gt;、&lt; big &gt;   </p>
+<h3 id="新的应用程序接口："><a href="#新的应用程序接口：" class="headerlink" title="新的应用程序接口："></a>新的应用程序接口：</h3><p>HTML LocalStorage<br>HTML Web Workers<br>HTML Canvas  游戏   </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/23/html5新特性/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-懒加载" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/22/懒加载/">懒加载</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/22/懒加载/" class="archive-article-date">
+  	<time datetime="2017-08-22T02:48:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&emsp;&emsp;懒加载，是网页性能优化的一种方式，不是将所有的图片显示，而是优先显示可视区图片。当需要显示更多图片的时候再请求资源，避免打开网页时加载过多资源。</p>
+<h2 id="懒加载原理"><a href="#懒加载原理" class="headerlink" title="懒加载原理"></a>懒加载原理</h2><p>不给img标签设置src属性，而是添加一个data-src属性，将图片的URL放入其中。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>比如：<a href="https://github.com/zhoukekestar/modules/blob/master/src/lazyload/lazyload.js" target="_blank" rel="external">lazyload.js</a>.<br>下面解读lazyload.js库。</p>
+<h3 id="HTML结构"><a href="#HTML结构" class="headerlink" title="HTML结构"></a>HTML结构</h3><pre><code> &lt;div id=&quot;container&quot;&gt;
+    &lt;div&gt;
+        &lt;img class=&quot;img1&quot; alt=&quot;loading&quot; data-src=&quot;img/image1.jpg&quot;&gt;           
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;img class=&quot;img2&quot; alt=&quot;loading&quot; data-src=&quot;img/image2.jpg&quot;&gt;
+    &lt;/div&gt; 
+    &lt;div&gt;
+        &lt;img class=&quot;img3&quot; alt=&quot;loading&quot; data-src=&quot;img/image1.jpg&quot;&gt;           
+    &lt;/div&gt;
+    &lt;div&gt;
+        &lt;img class=&quot;img4&quot; alt=&quot;loading&quot; data-src=&quot;img/image2.jpg&quot;&gt;
+    &lt;/div&gt; 
+&lt;/div&gt;   
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">网页性能优化</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">lazyload.js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/22/懒加载/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-es6" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -179,6 +399,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">es6</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -594,198 +825,6 @@
 
 
   
-    <article id="post-this解析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/14/this解析/">this解析</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/14/this解析/" class="archive-article-date">
-  	<time datetime="2017-08-14T06:55:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、默认绑定"><a href="#一、默认绑定" class="headerlink" title="一、默认绑定"></a>一、默认绑定</h2><p>&emsp;&emsp;最常用的函数调用类型：独立函数调用。<br>&emsp;&emsp;非严格模式下：this—&gt; window；<br>&emsp;&emsp;<img src="/asset/img/javascript基础/this解析/this1.png"><br>&emsp;&emsp;函数调用时，应用了this的默认绑定，因此this指向全局对象。<br>
-        
-          <a class="article-more-a" href="/2017/08/14/this解析/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/14/this解析/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-执行上下文" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/11/执行上下文/">执行上下文</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/11/执行上下文/" class="archive-article-date">
-  	<time datetime="2017-08-11T00:32:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、可执行代码"><a href="#一、可执行代码" class="headerlink" title="一、可执行代码"></a>一、可执行代码</h2><p>&emsp;&emsp;ES可执行代码（executable code）分为3种：<br>&emsp;&emsp;&emsp;全局代码—javascript代码首次进入的环境<br>&emsp;&emsp;&emsp;函数代码—函数被调用时，进入函数执行环境<br>&emsp;&emsp;&emsp;eval代码<br>
-        
-          <a class="article-more-a" href="/2017/08/11/执行上下文/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/11/执行上下文/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-作用域和闭包" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/10/作用域和闭包/">作用域和闭包</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/10/作用域和闭包/" class="archive-article-date">
-  	<time datetime="2017-08-10T07:20:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、作用域是什么？"><a href="#一、作用域是什么？" class="headerlink" title="一、作用域是什么？"></a>一、作用域是什么？</h2><p>&emsp;&emsp;作用域是根据名称查找变量的一种规则，也就是确定当前执行代码对变量的访问权限。<br>&emsp;&emsp;对程序“var a = 2; ”进行处理的的重要“演员表”：<br>&emsp;&emsp;1、引擎：负责整个javascript程序的编译和执行过程。<br>&emsp;&emsp;2、编译器（解释器）：负责语法分析及代码生成等。<br>&emsp;&emsp;3、作用域：负责搜集并维护由所有声明的标识符组成的一系列查询，并实施一套非常严格的规则，确定当前执行的代码对这些标识符的访问权限。（即负责当前执行的代码对标识符的访问权限）
-        
-          <a class="article-more-a" href="/2017/08/10/作用域和闭包/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/10/作用域和闭包/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -879,6 +918,10 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">es6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
@@ -887,15 +930,23 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">vue.js</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">前端框架</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">网页性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">lazyload.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
             
             <div class="clearfix"></div>
